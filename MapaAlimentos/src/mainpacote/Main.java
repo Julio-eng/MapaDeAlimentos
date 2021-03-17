@@ -6,7 +6,7 @@ public class Main {
 		
 		
 		System.out.println("Testando Funcionalidade do GitHub");
-		
+		System.out.println("Testando Funcionalidade do GitHub 2.0");
 		
 	}
 
