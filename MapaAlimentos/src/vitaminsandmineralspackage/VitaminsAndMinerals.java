@@ -2,11 +2,11 @@ package vitaminsandmineralspackage;
 
 public class VitaminsAndMinerals {
 	
-	protected String nome;
-	protected String fontesSignificativas;
-	protected String principaisFuncoes;
-	protected String doencasProvocadas;
-	protected String sintomasDeficiencia;
+	private String nome;
+	private String fontesSignificativas;
+	private String principaisFuncoes;
+	private String doencasProvocadas;
+	private String sintomasDeficiencia;
 	
 	//toString method override
 	public String toString() {
