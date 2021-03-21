@@ -2,7 +2,7 @@ package calculatorpackage;
 
 public abstract class BodyIndexCalculator {
 	
-	//classe abstrata com o atributo height, compartilhado com a classe BMI e BAI
+	//abstract class that contains the height attribute which is shared by BAI and BMI classes
 	protected double height;
 	
 	///getters and setters
