@@ -17,7 +17,7 @@ public final class BAI extends BodyIndexCalculator {
 	
 	//Method created to print the results
 	public void print() {
-		System.out.printf("IAC: %.2f", baiCalculation());	
+		System.out.printf("IAC: %.2f\n", baiCalculation());	
 	}
 	
 	//method to calculate BAI

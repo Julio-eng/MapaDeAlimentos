@@ -17,7 +17,7 @@ public final class BMI extends BodyIndexCalculator {
 	
 	//Method created to print the results
 	public void print() {
-		System.out.printf("IMC: %.2f", bmiCalculation());	
+		System.out.printf("IMC: %.2f\n", bmiCalculation());	
 	}
 	
 	//method to calculate BMI
