@@ -4,23 +4,23 @@ public final class BMI extends BodyIndexCalculator {
 	
 	private double weight;
 	
-	//metodo contrutuor
+	//constructor method
 	public BMI(Double height, double weight) {
 		this.height = height;
 		this.weight = weight;
 	}
 	
-	//metodo contrutuor
+	//constructor method
 	public BMI() {
 		
 	}
 	
-	//metodo para printar o resultado do calculo do IMC
+	//Method created to print the results
 	public void print() {
 		System.out.printf("IMC: %.2f", bmiCalculation());	
 	}
 	
-	//metodo para calcular o IMC
+	//method to calculate BMI
 	public double bmiCalculation() {
 		return this.weight/(this.height*this.height);
 	}
