@@ -8,13 +8,14 @@ public class VitaminsAndMinerals {
 	protected String doencasProvocadas;
 	protected String sintomasDeficiencia;
 	
-	
+	//sobreposicao do metodo toString
 	public String toString() {
 		return nome + "\n\nfontesSignificativas:\n" + fontesSignificativas
 				+ "\n\nprincipaisFuncoes:\n" + principaisFuncoes + "\n\ndoencasProvocadas:\n" + doencasProvocadas
 				+ "\n\nsintomasDeficiencia:\n" + sintomasDeficiencia;
 	}
 	
+	///getters and setters
 	public String getNome() {
 		return nome;
 	}
