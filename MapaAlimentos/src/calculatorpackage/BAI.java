@@ -4,23 +4,23 @@ public final class BAI extends BodyIndexCalculator {
 	
 	private double hip;
 	
-	//metodo contrutuor 
+	//constructor method 
 	public BAI(Double height, double hip) {
 		this.height = height;
 		this.hip = hip;
 	}
 	
-	//metodo construtor
+	//constructor method
 	public BAI() {
 		
 	}
 	
-	//metodo para printar o resultado do calculo do IAC
+	//Method created to print the results
 	public void print() {
 		System.out.printf("IAC: %.2f", baiCalculation());	
 	}
 	
-	//metodo para calcular o IAC
+	//method to calculate BAI
 	public double baiCalculation() {
 		return this.hip/(this.height*this.height);
 	}
