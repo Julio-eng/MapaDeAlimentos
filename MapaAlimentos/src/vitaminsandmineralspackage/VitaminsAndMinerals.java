@@ -8,7 +8,7 @@ public class VitaminsAndMinerals {
 	protected String doencasProvocadas;
 	protected String sintomasDeficiencia;
 	
-	//sobreposicao do metodo toString
+	//toString method override
 	public String toString() {
 		return nome + "\n\nfontesSignificativas:\n" + fontesSignificativas
 				+ "\n\nprincipaisFuncoes:\n" + principaisFuncoes + "\n\ndoencasProvocadas:\n" + doencasProvocadas
