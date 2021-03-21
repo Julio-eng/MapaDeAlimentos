@@ -204,14 +204,14 @@ public class NutritionalTable {
 	
 	
 	public String toString() {
-		return "NutritionalTable [name=" + name + ", calorie=" + calorie + ", protein=" + protein + ", carbohydrate="
-				+ carbohydrate + ", lipids=" + lipids + ", calcium=" + calcium + ", iron=" + iron + ", fiber=" + fiber
-				+ ", phosphor=" + phosphor + ", iodine=" + iodine + ", magnesium=" + magnesium + ", potassium="
-				+ potassium + ", sodium=" + sodium + ", zinc=" + zinc + ", vitaminA=" + vitaminA + ", vitaminB1="
-				+ vitaminB1 + ", vitaminB2=" + vitaminB2 + ", vitaminB3=" + vitaminB3 + ", vitaminB5=" + vitaminB5
-				+ ", vitaminB6=" + vitaminB6 + ", vitaminB9=" + vitaminB9 + ", vitaminB12=" + vitaminB12 + ", vitaminC="
-				+ vitaminC + ", vitaminD=" + vitaminD + ", vitaminE=" + vitaminE + ", vitaminH=" + vitaminH
-				+ ", vitaminK=" + vitaminK + "]";
+		return "\nNutritionalTable \nname = " + name + "\ncalories = " + calorie + "\nprotein = " + protein + "\ncarbohydrate = "
+				+ carbohydrate + "\nlipids = " + lipids + "\ncalcium = " + calcium + "\niron = " + iron + "\nfiber = " + fiber
+				+ "\nphosphor = " + phosphor + "\niodine = " + iodine + "\nmagnesium = " + magnesium + "\npotassium = "
+				+ potassium + "\nsodium = " + sodium + "\nzinc = " + zinc + "\nvitaminA = " + vitaminA + "\nvitaminB1 = "
+				+ vitaminB1 + "\nvitaminB2 = " + vitaminB2 + "\nvitaminB3 = " + vitaminB3 + "\nvitaminB5 = " + vitaminB5
+				+ "\nvitaminB6 = " + vitaminB6 + "\nvitaminB9 = " + vitaminB9 + "\nvitaminB12 = " + vitaminB12 + "\nvitaminC = "
+				+ vitaminC + "\nvitaminD = " + vitaminD + "\nvitaminE = " + vitaminE + "\nvitaminH = " + vitaminH
+				+ "\nvitaminK = " + vitaminK;
 	}
 	
 	
