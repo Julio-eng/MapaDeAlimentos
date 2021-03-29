@@ -1,5 +1,6 @@
-package mainpacote;
+package mainpackage;
 
+import guipackage.MyFrame;
 import calculatorpackage.BAI;
 import calculatorpackage.BMI;
 import diseasepackage.Disease;
@@ -7,10 +8,12 @@ import foodmappackage.Aliments;
 import foodmappackage.NutritionalTable;
 import vitaminsandmineralspackage.VitaminsAndMinerals;
 
+
 public class Main {
 
 	public static void main(String[] args) {
 		
+		/*
 		BAI bodyAdiposityIndex = new BAI(1.8, 100.0);
 		BMI bodyMassIndex = new BMI(1.8, 65);
 		bodyAdiposityIndex.print();
@@ -34,6 +37,11 @@ public class Main {
 		vitaminsAndMinerals.setSignificantSources("String");
 		vitaminsAndMinerals.setDiseasesCaused("String");
 		System.out.println("\n"+vitaminsAndMinerals.toString());
+		*/
+		
+		MyFrame frame = new MyFrame();
+		frame.graphicalUserInterfaceMethod();
+		
 		
 
 				
