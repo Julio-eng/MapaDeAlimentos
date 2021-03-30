@@ -1,6 +1,6 @@
 package mainpackage;
 
-import guipackage.MyFrame;
+import guipackage.*;
 import calculatorpackage.BAI;
 import calculatorpackage.BMI;
 import diseasepackage.Disease;
@@ -39,9 +39,8 @@ public class Main {
 		System.out.println("\n"+vitaminsAndMinerals.toString());
 		*/
 		
-		MyFrame frame = new MyFrame();
+		MyFrame frame = new MyFrame();	
 		frame.graphicalUserInterfaceMethod();
-		
 		
 
 				
