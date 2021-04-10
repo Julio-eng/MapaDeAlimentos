@@ -1,4 +1,4 @@
-package calculatorpackage;
+package model;
 
 public final class BAI extends BodyIndexCalculator {
 	

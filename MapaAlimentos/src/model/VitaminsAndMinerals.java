@@ -1,4 +1,4 @@
-package vitaminsandmineralspackage;
+package model;
 
 public class VitaminsAndMinerals {
 	

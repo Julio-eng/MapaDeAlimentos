@@ -1,4 +1,4 @@
-package diseasepackage;
+package model;
 
 public class Disease {
 	

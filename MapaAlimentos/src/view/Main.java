@@ -1,13 +1,4 @@
-package mainpackage;
-
-import guipackage.*;
-import calculatorpackage.BAI;
-import calculatorpackage.BMI;
-import diseasepackage.Disease;
-import foodmappackage.Aliments;
-import foodmappackage.NutritionalTable;
-import vitaminsandmineralspackage.VitaminsAndMinerals;
-
+package view;
 
 public class Main {
 
