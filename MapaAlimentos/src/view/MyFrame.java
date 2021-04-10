@@ -1,4 +1,4 @@
-package guipackage;
+package view;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -13,7 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
-import foodmappackage.Aliments;
+import model.Aliments;
 
 public class MyFrame extends JFrame implements ActionListener {
 
