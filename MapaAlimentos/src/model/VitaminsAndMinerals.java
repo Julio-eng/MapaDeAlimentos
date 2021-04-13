@@ -10,9 +10,7 @@ public class VitaminsAndMinerals {
 	
 	//toString method override
 	public String toString() {
-		return name + "\n\nfontesSignificativas:\n" + significantSources
-				+ "\n\nprincipaisFuncoes:\n" + mainFunctions + "\n\ndoencasProvocadas:\n" + diseasesCaused
-				+ "\n\nsintomasDeficiencia:\n" + deficiencySymptoms;
+		return name ;
 	}
 
 	public String getName() {
