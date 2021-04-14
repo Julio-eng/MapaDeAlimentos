@@ -53,7 +53,7 @@ public class MineralsView implements ListSelectionListener, ActionListener{
 		mineralsFrame.setVisible(true);
 		
 	}
-
+	
 	@Override
 	public void valueChanged(ListSelectionEvent e) {
 		
@@ -79,5 +79,5 @@ public class MineralsView implements ListSelectionListener, ActionListener{
 	public void setModel(DefaultListModel<VitaminsAndMinerals> model) {
 		this.model = model;
 	}
-	
+
 }

@@ -21,7 +21,7 @@ public class AddMineralsView implements ActionListener{
 	private JLabel functions = new JLabel();
 	private JLabel diseases = new JLabel();
 	private JLabel symptoms = new JLabel();
-	private JButton save = new JButton("Save");
+	private JButton save = new JButton("Save"); 
 	
 	public AddMineralsView() {
 		
@@ -102,9 +102,51 @@ public class AddMineralsView implements ActionListener{
 			
 			new MineralsView().getModel().addElement(mineral);
 			
+			JOptionPane.showMessageDialog(null, "Mineral adicionado!", null, JOptionPane.INFORMATION_MESSAGE);
+			
 			addView.dispose();
 		}
 		
+	}
+
+	public JTextArea getAddName() {
+		return addName;
+	}
+
+	public void setAddName(JTextArea addName) {
+		this.addName = addName;
+	}
+
+	public JTextArea getAddSources() {
+		return addSources;
+	}
+
+	public void setAddSources(JTextArea addSources) {
+		this.addSources = addSources;
+	}
+
+	public JTextArea getAddFunctions() {
+		return addFunctions;
+	}
+
+	public void setAddFunctions(JTextArea addFunctions) {
+		this.addFunctions = addFunctions;
+	}
+
+	public JTextArea getAddDiseases() {
+		return addDiseases;
+	}
+
+	public void setAddDiseases(JTextArea addDiseases) {
+		this.addDiseases = addDiseases;
+	}
+
+	public JTextArea getAddSymptoms() {
+		return addSymptoms;
+	}
+
+	public void setAddSymptoms(JTextArea addSymptoms) {
+		this.addSymptoms = addSymptoms;
 	}
 
 } 
