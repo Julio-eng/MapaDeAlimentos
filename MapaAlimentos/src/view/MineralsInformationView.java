@@ -22,15 +22,18 @@ public class MineralsInformationView implements ActionListener {
 	private JLabel title4 = new JLabel();
 	private JButton delete = new JButton("Delete");
 	private JButton edit = new JButton("edit");
-	
+	private JButton save = new JButton("Save");
 	
 	public MineralsInformationView(VitaminsAndMinerals pos) {
 		
 		//delete and edit button
-		delete.setBounds(295, 705, 100, 50);
+		delete.setBounds(375, 705, 100, 50);
 		delete.addActionListener(this);
-		edit.setBounds(95, 705, 100, 50);
+		edit.setBounds(5, 705, 100, 50);
 		edit.addActionListener(this);
+		save.setBounds(110, 705, 100, 50);
+		save.setFocusable(false);
+		save.addActionListener(this);
 		
 		// titles and name label
 		name.setBounds(0, 0, 485, 40);
@@ -55,6 +58,7 @@ public class MineralsInformationView implements ActionListener {
 		//adding delete and edit button
 		information.add(delete);
 		information.add(edit);
+		information.add(save);
 		
 		// adding labels
 		information.add(name);
@@ -100,9 +104,17 @@ public class MineralsInformationView implements ActionListener {
 		
 	}
 
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == edit) {
+			
+			sources.setEditable(true);
+			functions.setEditable(true);
+			diseases.setEditable(true);
+			symptoms.setEditable(true);
+			
+		}
+		
+		if(e.getSource() == save) {
 			
 		}
 		
