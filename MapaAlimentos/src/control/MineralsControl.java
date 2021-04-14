@@ -37,8 +37,8 @@ public class MineralsControl {
 		
 		phosphorus.setName("Phosphorus");
 		phosphorus.setSignificantSources("Todos os tecidos animais(carne, peixe, aves, ovos e leite");
-		phosphorus.setMainFunctions("<html>Mineralização de ossos e dentes; componente de todas as celulas;"
-	    + "<br/>" + " importante no material genético, utilizado para a transferência de energia</html>");
+		phosphorus.setMainFunctions("Mineralização de ossos e dentes; componente de todas as celulas;"
+	    +" importante no material genético, utilizado para a transferência de energia");
 		phosphorus.setDiseasesCaused("Fraqueza muscular e dores nos ossos");
 		phosphorus.setDeficiencySymptoms("Fraqueza e dores. Raramente ocorre deficiência de fósforo");
 		
