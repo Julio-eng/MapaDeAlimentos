@@ -20,13 +20,13 @@ public class MainFrame extends JFrame implements ActionListener {
 	private JLabel programName = new JLabel("Menu Principal");
 	
 	
-	public void mainFrame() {
+	public MainFrame() {
 		
 		//working with fundamental GUI things
 		this.setVisible(true);
 		this.setSize(500, 800); 
 		this.setTitle("Mapa de Alimentos"); 	
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // defaut = hide on close = keep running on background
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // default = hide on close = keep running on background
 		this.setResizable(false);
 		this.setLayout(null);
 		this.getContentPane().setBackground(new Color(240, 192, 134)); //background color		
@@ -74,31 +74,31 @@ public class MainFrame extends JFrame implements ActionListener {
 		
 		if(e.getSource() == alimentButton) {
 			
-			AlimentFrame newAlimentWindow = new AlimentFrame();
+			 new AlimentFrame();
 			
 		}
 		
 		if(e.getSource() == vitaminsButton) {
 			
-			VitaminsFrame newVitaminsWindow = new VitaminsFrame();
+			 new VitaminsFrame();
 			
 		}
 		
 		if(e.getSource() == mineralsButton) {
 			
-			MineralsFrame newMineralsWindow = new MineralsFrame();
+			 new MineralsView();
 			
 		}
 		
 		if(e.getSource() == diseasesButton) {
 			
-			DiseasesFrame newDiseasesWindow = new DiseasesFrame();
+			 new DiseasesFrame();
 			
 		}
 		
 		if(e.getSource() == calculatorButton) {
 			
-			CalculatorFrame newCalculatorWindow = new CalculatorFrame();
+			 new CalculatorFrame();
 			
 		}
 	}
