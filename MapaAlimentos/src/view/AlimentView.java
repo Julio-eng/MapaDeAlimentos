@@ -16,7 +16,7 @@ import javax.swing.JScrollPane;
 import control.AlimentsControl;
 import model.NutritionalTable;
 
-public class AlimentFrame {
+public class AlimentView {
 	
 	
 	private JFrame alimentFrame = new JFrame();
@@ -28,7 +28,7 @@ public class AlimentFrame {
 	private JScrollPane scroll = new JScrollPane();
 
 	
-	AlimentFrame(){
+	AlimentView(){
 		
 		
 		alimentFrame.setVisible(true);

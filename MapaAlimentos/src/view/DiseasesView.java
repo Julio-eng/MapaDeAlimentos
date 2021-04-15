@@ -4,13 +4,13 @@ import java.awt.Color;
 
 import javax.swing.JFrame;
 
-public class DiseasesFrame {
+public class DiseasesView {
 	
 	
 	
 	JFrame diseasesFrame = new JFrame();
 	
-	DiseasesFrame(){
+	DiseasesView(){
 		
 		
 		diseasesFrame.setVisible(true);

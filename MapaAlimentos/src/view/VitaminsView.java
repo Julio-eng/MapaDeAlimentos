@@ -5,12 +5,12 @@ import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JList;
 
-public class VitaminsFrame {
+public class VitaminsView {
 	
 	
 	JFrame vitaminsFrame = new JFrame();
 	
-	VitaminsFrame(){
+	VitaminsView(){
 		
 		
 		vitaminsFrame.setVisible(true);

@@ -4,13 +4,13 @@ import java.awt.Color;
 
 import javax.swing.JFrame;
 
-public class CalculatorFrame {
+public class CalculatorView {
 	
 	
 	
 	JFrame calculatorFrame = new JFrame();
 	
-	CalculatorFrame(){
+	CalculatorView(){
 		
 		
 		calculatorFrame.setVisible(true);

@@ -9,7 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class MainFrame extends JFrame implements ActionListener {
+public class MainView extends JFrame implements ActionListener {
 	
 	private JButton alimentButton = new JButton();
 	private JButton vitaminsButton = new JButton();
@@ -20,7 +20,7 @@ public class MainFrame extends JFrame implements ActionListener {
 	private JLabel programName = new JLabel("Menu Principal");
 	
 	
-	public MainFrame() {
+	public MainView() {
 		
 		//working with fundamental GUI things
 		this.setVisible(true);
@@ -74,13 +74,13 @@ public class MainFrame extends JFrame implements ActionListener {
 		
 		if(e.getSource() == alimentButton) {
 			
-			 new AlimentFrame();
+			 new AlimentView();
 			
 		}
 		
 		if(e.getSource() == vitaminsButton) {
 			
-			 new VitaminsFrame();
+			 new VitaminsView();
 			
 		}
 		
@@ -92,13 +92,13 @@ public class MainFrame extends JFrame implements ActionListener {
 		
 		if(e.getSource() == diseasesButton) {
 			
-			 new DiseasesFrame();
+			 new DiseasesView();
 			
 		}
 		
 		if(e.getSource() == calculatorButton) {
 			
-			 new CalculatorFrame();
+			 new CalculatorView();
 			
 		}
 	}
