@@ -5,194 +5,194 @@ public class NutritionalTable {
 	private String name;
 	
 	//Energy
-	private double calorie;
+	private String calorie;
 	
 	//Macronutrients
-	private double protein;
-	private double carbohydrate;
-	private double lipids;
+	private String protein;
+	private String carbohydrate;
+	private String lipids;
 	
 	//Minerals
-	private double calcium;
-	private double iron;
-	private double fiber;
-	private double phosphor;
-	private double iodine;
-	private double magnesium;
-	private double potassium;
-	private double sodium;
-	private double zinc;
+	private String calcium;
+	private String iron;
+	private String fiber;
+	private String phosphor;
+	private String iodine;
+	private String magnesium;
+	private String potassium;
+	private String sodium;
+	private String zinc;
 	
 	//Vitamins
-	private double vitaminA;
-	private double vitaminB1;
-	private double vitaminB2;
-	private double vitaminB3;
-	private double vitaminB5;
-	private double vitaminB6;
-	private double vitaminB9;
-	private double vitaminB12;
-	private double vitaminC;
-	private double vitaminD;
-	private double vitaminE;
-	private double vitaminH;
-	private double vitaminK;
+	private String vitaminA;
+	private String vitaminB1;
+	private String vitaminB2;
+	private String vitaminB3;
+	private String vitaminB5;
+	private String vitaminB6;
+	private String vitaminB9;
+	private String vitaminB12;
+	private String vitaminC;
+	private String vitaminD;
+	private String vitaminE;
+	private String vitaminH;
+	private String vitaminK;
 	
 	
-	public double getCalorie() {
+	public String getCalorie() {
 		return calorie;
 	}
-	public void setCalorie(double calorie) {
+	public void setCalorie(String calorie) {
 		this.calorie = calorie;
 	}
-	public double getProtein() {
+	public String getProtein() {
 		return protein;
 	}
-	public void setProtein(double protein) {
+	public void setProtein(String protein) {
 		this.protein = protein;
 	}
-	public double getCarbohydrate() {
+	public String getCarbohydrate() {
 		return carbohydrate;
 	}
-	public void setCarbohydrate(double carbohydrate) {
+	public void setCarbohydrate(String carbohydrate) {
 		this.carbohydrate = carbohydrate;
 	}
-	public double getLipids() {
+	public String getLipids() {
 		return lipids;
 	}
-	public void setLipids(double lipids) {
+	public void setLipids(String lipids) {
 		this.lipids = lipids;
 	}
-	public double getCalcium() {
+	public String getCalcium() {
 		return calcium;
 	}
-	public void setCalcium(double calcium) {
+	public void setCalcium(String calcium) {
 		this.calcium = calcium;
 	}
-	public double getIron() {
+	public String getIron() {
 		return iron;
 	}
-	public void setIron(double iron) {
+	public void setIron(String iron) {
 		this.iron = iron;
 	}
-	public double getFiber() {
+	public String getFiber() {
 		return fiber;
 	}
-	public void setFiber(double fiber) {
+	public void setFiber(String fiber) {
 		this.fiber = fiber;
 	}
-	public double getPhosphor() {
+	public String getPhosphor() {
 		return phosphor;
 	}
-	public void setPhosphor(double phosphor) {
+	public void setPhosphor(String phosphor) {
 		this.phosphor = phosphor;
 	}
-	public double getIodine() {
+	public String getIodine() {
 		return iodine;
 	}
-	public void setIodine(double iodine) {
+	public void setIodine(String iodine) {
 		this.iodine = iodine;
 	}
-	public double getMagnesium() {
+	public String getMagnesium() {
 		return magnesium;
 	}
-	public void setMagnesium(double magnesium) {
+	public void setMagnesium(String magnesium) {
 		this.magnesium = magnesium;
 	}
-	public double getPotassium() {
+	public String getPotassium() {
 		return potassium;
 	}
-	public void setPotassium(double potassium) {
+	public void setPotassium(String potassium) {
 		this.potassium = potassium;
 	}
-	public double getSodium() {
+	public String getSodium() {
 		return sodium;
 	}
-	public void setSodium(double sodium) {
+	public void setSodium(String sodium) {
 		this.sodium = sodium;
 	}
-	public double getZinc() {
+	public String getZinc() {
 		return zinc;
 	}
-	public void setZinc(double zinc) {
+	public void setZinc(String zinc) {
 		this.zinc = zinc;
 	}
-	public double getVitaminA() {
+	public String getVitaminA() {
 		return vitaminA;
 	}
-	public void setVitaminA(double vitaminA) {
+	public void setVitaminA(String vitaminA) {
 		this.vitaminA = vitaminA;
 	}
-	public double getVitaminB1() {
+	public String getVitaminB1() {
 		return vitaminB1;
 	}
-	public void setVitaminB1(double vitaminB1) {
+	public void setVitaminB1(String vitaminB1) {
 		this.vitaminB1 = vitaminB1;
 	}
-	public double getVitaminB2() {
+	public String getVitaminB2() {
 		return vitaminB2;
 	}
-	public void setVitaminB2(double vitaminB2) {
+	public void setVitaminB2(String vitaminB2) {
 		this.vitaminB2 = vitaminB2;
 	}
-	public double getVitaminB3() {
+	public String getVitaminB3() {
 		return vitaminB3;
 	}
-	public void setVitaminB3(double vitaminB3) {
+	public void setVitaminB3(String vitaminB3) {
 		this.vitaminB3 = vitaminB3;
 	}
-	public double getVitaminB5() {
+	public String getVitaminB5() {
 		return vitaminB5;
 	}
-	public void setVitaminB5(double vitaminB5) {
+	public void setVitaminB5(String vitaminB5) {
 		this.vitaminB5 = vitaminB5;
 	}
-	public double getVitaminB6() {
+	public String getVitaminB6() {
 		return vitaminB6;
 	}
-	public void setVitaminB6(double vitaminB6) {
+	public void setVitaminB6(String vitaminB6) {
 		this.vitaminB6 = vitaminB6;
 	}
-	public double getVitaminB9() {
+	public String getVitaminB9() {
 		return vitaminB9;
 	}
-	public void setVitaminB9(double vitaminB9) {
+	public void setVitaminB9(String vitaminB9) {
 		this.vitaminB9 = vitaminB9;
 	}
-	public double getVitaminB12() {
+	public String getVitaminB12() {
 		return vitaminB12;
 	}
-	public void setVitaminB12(double vitaminB12) {
+	public void setVitaminB12(String vitaminB12) {
 		this.vitaminB12 = vitaminB12;
 	}
-	public double getVitaminC() {
+	public String getVitaminC() {
 		return vitaminC;
 	}
-	public void setVitaminC(double vitaminC) {
+	public void setVitaminC(String vitaminC) {
 		this.vitaminC = vitaminC;
 	}
-	public double getVitaminD() {
+	public String getVitaminD() {
 		return vitaminD;
 	}
-	public void setVitaminD(double vitaminD) {
+	public void setVitaminD(String vitaminD) {
 		this.vitaminD = vitaminD;
 	}
-	public double getVitaminE() {
+	public String getVitaminE() {
 		return vitaminE;
 	}
-	public void setVitaminE(double vitaminE) {
+	public void setVitaminE(String vitaminE) {
 		this.vitaminE = vitaminE;
 	}
-	public double getVitaminH() {
+	public String getVitaminH() {
 		return vitaminH;
 	}
-	public void setVitaminH(double vitaminH) {
+	public void setVitaminH(String vitaminH) {
 		this.vitaminH = vitaminH;
 	}
-	public double getVitaminK() {
+	public String getVitaminK() {
 		return vitaminK;
 	}
-	public void setVitaminK(double vitaminK) {
+	public void setVitaminK(String vitaminK) {
 		this.vitaminK = vitaminK;
 	}
 	public String getName() {
@@ -204,14 +204,7 @@ public class NutritionalTable {
 	
 	
 	public String toString() {
-		return "\nNutritionalTable \nname = " + name + "\ncalories = " + calorie + "\nprotein = " + protein + "\ncarbohydrate = "
-				+ carbohydrate + "\nlipids = " + lipids + "\ncalcium = " + calcium + "\niron = " + iron + "\nfiber = " + fiber
-				+ "\nphosphor = " + phosphor + "\niodine = " + iodine + "\nmagnesium = " + magnesium + "\npotassium = "
-				+ potassium + "\nsodium = " + sodium + "\nzinc = " + zinc + "\nvitaminA = " + vitaminA + "\nvitaminB1 = "
-				+ vitaminB1 + "\nvitaminB2 = " + vitaminB2 + "\nvitaminB3 = " + vitaminB3 + "\nvitaminB5 = " + vitaminB5
-				+ "\nvitaminB6 = " + vitaminB6 + "\nvitaminB9 = " + vitaminB9 + "\nvitaminB12 = " + vitaminB12 + "\nvitaminC = "
-				+ vitaminC + "\nvitaminD = " + vitaminD + "\nvitaminE = " + vitaminE + "\nvitaminH = " + vitaminH
-				+ "\nvitaminK = " + vitaminK;
+		return name;
 	}
 	
 	
