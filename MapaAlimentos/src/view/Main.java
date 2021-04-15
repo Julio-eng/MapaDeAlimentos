@@ -1,5 +1,6 @@
 package view;
 
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -30,10 +31,9 @@ public class Main {
 		System.out.println("\n"+vitaminsAndMinerals.toString());
 		*/
 		
-		MyFrame frame = new MyFrame();	
-		frame.graphicalUserInterfaceMethod();
+		MainFrame frame = new MainFrame();	
 		
-
+		
 				
 	}
 
