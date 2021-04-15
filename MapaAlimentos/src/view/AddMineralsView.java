@@ -92,19 +92,15 @@ public class AddMineralsView implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == save) {
-			
+			addView.dispose();
 			VitaminsAndMinerals mineral = new VitaminsAndMinerals();
 			mineral.setName(addName.getText());
 			mineral.setSignificantSources(addSources.getText());
 			mineral.setMainFunctions(addFunctions.getText());
 			mineral.setDiseasesCaused(addDiseases.getText());
 			mineral.setDeficiencySymptoms(addSymptoms.getText());
-			
 			new MineralsView().getModel().addElement(mineral);
-			
 			JOptionPane.showMessageDialog(null, "Mineral adicionado!", null, JOptionPane.INFORMATION_MESSAGE);
-			
-			addView.dispose();
 		}
 		
 	}

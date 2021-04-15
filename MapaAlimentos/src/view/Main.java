@@ -31,7 +31,7 @@ public class Main {
 		System.out.println("\n"+vitaminsAndMinerals.toString());
 		*/
 		
-		MainFrame frame = new MainFrame();	
+		MainView frame = new MainView();	
 		
 		
 				
