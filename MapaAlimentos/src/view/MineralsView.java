@@ -265,6 +265,7 @@ public void setLabels(JLabel name, int y, String label) {
 		name.setFont(new Font("Arial",Font.PLAIN, 20));
 		name.setLineWrap(true);
 		name.setWrapStyleWord(true);
+		name.setText(null);
 	}
 	
 }
