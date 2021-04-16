@@ -34,7 +34,6 @@ public class MineralsView implements ListSelectionListener, ActionListener{
 	private JButton delete = new JButton("Deletar");
 	private JButton edit = new JButton("Editar");
 	private JButton save2 = new JButton("Salvar");
-	
 	// add view ----------------------------------------------------------------------------------------------------------
 	private JPanel addPanel = new JPanel();
 	private JTextArea addName = new JTextArea();
@@ -48,7 +47,6 @@ public class MineralsView implements ListSelectionListener, ActionListener{
 	private JLabel diseases2 = new JLabel();
 	private JLabel symptoms2 = new JLabel();
 	private JButton save = new JButton("Salvar");
-	
 	
 	public MineralsView(){
 		// Buttons -------------------------------------------------------------------------------------------------------
@@ -69,7 +67,7 @@ public class MineralsView implements ListSelectionListener, ActionListener{
 		save2.addActionListener(this);
 		
 		// Minerals List -------------------------------------------------------------------------------------------------
-		mineralsList.setBounds(5, 5, 250, 750);
+		mineralsList.setBounds(5, 5, 200, 300);
 		mineralsList.setFont(new Font("Arial", Font.BOLD,20));
 		mineralsList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		mineralsList.addListSelectionListener(this);
@@ -136,7 +134,7 @@ public class MineralsView implements ListSelectionListener, ActionListener{
 		frame.add(addPanel);
 		// Frame
 		frame.setSize(500, 800);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(null);
 		frame.setVisible(true);
 		
@@ -198,7 +196,7 @@ public class MineralsView implements ListSelectionListener, ActionListener{
 			infoPanel.setVisible(false);
 			addPanel.setVisible(true);
 			// Labels
-			setLabels(name, 0, "name");
+			setLabels(name2, 0, "name");
 			setLabels(sources2, 75, "Significant Sources");
 			setLabels(functions2, 230, "Main functions");
 			setLabels(diseases2, 385, "diseases caused by deficiency");
