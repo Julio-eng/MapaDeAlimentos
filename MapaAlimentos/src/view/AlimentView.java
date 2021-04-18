@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -24,8 +25,12 @@ import model.VitaminsAndMinerals;
 
 public class AlimentView implements ListSelectionListener, ActionListener {
 	
-	
+	//--------------------------IMAGES----------------------------------------------------------------------------------------------------------
+	private ImageIcon regressIcon = new ImageIcon("regress.png");
+	private ImageIcon menuIcon2 = new ImageIcon("menu.png");	
+	//--------------------------FRAME-----------------------------------------------------------------------------------------------------------
 	private JFrame alimentFrame = new JFrame();
+	//--------------------------PANELS----------------------------------------------------------------------------------------------------------
 	private JPanel alimentListPanel = new JPanel();
 	private JPanel listOfAlimentsPanel = new JPanel();
 	private JPanel informationViewPanel = new JPanel();
@@ -34,16 +39,27 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 	private JLabel nutritionalTableLabel = new JLabel("Tabela Nutricional");
 	private JLabel addANewAliment = new JLabel("Adicionar novo alimento");
 	private JLabel nameOfTheAliment = new JLabel();
+	//--------------------------BUTTONS---------------------------------------------------------------------------------------------------------
 	private JButton add = new JButton();
 	private JButton edit = new JButton();
 	private JButton delete = new JButton();
 	private JButton save = new JButton();
 	private JButton save2 = new JButton();
+	private JButton regress = new JButton();
+	private JButton menu = new JButton();
+	private JButton regress2 = new JButton();
+	private JButton menu2 = new JButton();
+	private JButton regress3 = new JButton();
+	private JButton menu3 = new JButton();
+	//--------------------------LIST------------------------------------------------------------------------------------------------------------
 	private DefaultListModel<NutritionalTable> model = new DefaultListModel<NutritionalTable>();
 	private JList<NutritionalTable> alimentsJList = new JList<NutritionalTable>(model);
+	//--------------------------BUTTONS---------------------------------------------------------------------------------------------------------
 	private JScrollPane scroll = new JScrollPane();
+	//--------------------------TEXT-AREA-------------------------------------------------------------------------------------------------------
 	private JTextArea nutritionalTableInformations = new JTextArea();
 	private JTextArea nutritionalTableAdd = new JTextArea();
+	//--------------------------TEXT-FIELD------------------------------------------------------------------------------------------------------
 	private JTextField nameSubmit = new JTextField();
 	private JTextField calorieSubmit = new JTextField();
 	private JTextField proteinsSubmit = new JTextField();
@@ -110,10 +126,12 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 		alimentFrame.setResizable(false);
 		alimentFrame.setLayout(null);
 		alimentFrame.getContentPane().setBackground(new Color(240, 192, 134)); //background color
+		alimentFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		alimentFrame.add(listOfAlimentsPanel);
 		alimentFrame.add(informationViewPanel);
 		alimentFrame.add(add);
 		alimentFrame.add(addPanel);		
+		
 		
 		vitaminASubmit.setEditable(true);
 		
@@ -151,7 +169,8 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 		addPanel.add(vitaminKSubmit);
 		addPanel.add(nameSubmit);
 		addPanel.add(save);
-		
+		addPanel.add(regress2);
+		addPanel.add(menu2);
 		
 		//MAIN PANEL---------------------------------------------------------------------------------------------------------------
 		listOfAlimentsPanel.setVisible(true);
@@ -161,6 +180,8 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 		listOfAlimentsPanel.add(add);
 		listOfAlimentsPanel.add(listOfAlimentsLabel);
 		listOfAlimentsPanel.setBackground(new Color(240, 192, 134));
+		listOfAlimentsPanel.add(regress);
+		listOfAlimentsPanel.add(menu);
 		
 		//INFO VIEW PANEL----------------------------------------------------------------------------------------------------------
 		informationViewPanel.setVisible(true);
@@ -200,6 +221,9 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 		informationViewPanel.add(vitaminESubmit2);
 		informationViewPanel.add(vitaminHSubmit2);
 		informationViewPanel.add(vitaminKSubmit2);
+		informationViewPanel.add(regress3);
+		informationViewPanel.add(menu3);
+
 				
 		//LIST PANEL----------------------------------------------------------------------------------------------------------------
 		alimentListPanel.setBounds(30, 100, 300, 550);
@@ -240,12 +264,19 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 		nutritionalTableAdd.setFont(new Font("Arial", Font.BOLD, 20));
 		nutritionalTableAdd.setBackground(new Color(240, 192, 134));
 		
-		
+		//BUTTONS------------------------------------------------------------------------------------------------------------------
 		standardizeButtons(add, "Adicionar", 30, 670, 100, 50);
 		standardizeButtons(edit, "Editar", 370, 600, 100, 50);
 		standardizeButtons(save, "Salvar", 370, 670, 100, 50);
 		standardizeButtons(delete, "Deletar", 370, 670, 100, 50);
 		standardizeButtons(save2, "Salvar", 370, 530, 100, 50);
+		setMiniButtons(regress, regressIcon, 0);
+		setMiniButtons(menu, menuIcon2, 32);
+		setMiniButtons(regress2, regressIcon, 0);
+		setMiniButtons(menu2, menuIcon2, 32);
+		setMiniButtons(regress3, regressIcon, 0);
+		setMiniButtons(menu3, menuIcon2, 32);
+		
 			
 		//SCROLL---------------------------------------------------------------------------------------------------------------------
 		scroll.setVisible(true);
@@ -488,11 +519,6 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 			vitaminKSubmit2.setEditable(true);
 			
 			
-			
-			
-			
-			
-			
 		}
 		
 		if(e.getSource() == save2) {
@@ -534,7 +560,69 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 			
 		}
 		
+		if(e.getSource() == regress) {
+			
+			addPanel.setVisible(false);
+			informationViewPanel.setVisible(false);
+			listOfAlimentsPanel.setVisible(false);
+			alimentFrame.dispose();
+			
+			new MainView();			
+			
+		}
 		
+		if(e.getSource() == menu) {
+			
+			addPanel.setVisible(false);
+			informationViewPanel.setVisible(false);
+			listOfAlimentsPanel.setVisible(false);
+			alimentFrame.dispose();
+			
+			new MainView();			
+			
+		}
+		
+		if(e.getSource() == regress2) {
+			
+			addPanel.setVisible(false);
+			informationViewPanel.setVisible(false);
+			listOfAlimentsPanel.setVisible(true);
+			
+		
+			
+		}
+		
+		if(e.getSource() == menu2) {
+			
+			addPanel.setVisible(false);
+			informationViewPanel.setVisible(false);
+			listOfAlimentsPanel.setVisible(false);
+			alimentFrame.dispose();
+			
+			new MainView();			
+			
+		}
+		
+		if(e.getSource() == regress3) {
+			
+			addPanel.setVisible(false);
+			informationViewPanel.setVisible(false);
+			listOfAlimentsPanel.setVisible(true);
+			
+		
+			
+		}
+		
+		if(e.getSource() == menu3) {
+			
+			addPanel.setVisible(false);
+			informationViewPanel.setVisible(false);
+			listOfAlimentsPanel.setVisible(false);
+			alimentFrame.dispose();
+			
+			new MainView();			
+			
+		}
 
 		
 	}
@@ -584,7 +672,6 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 	
 	public void standardizeButtons(JButton button, String name, int x, int y, int width, int height) {
 		
-		//HM
 		button.setText(name);
 		button.setBounds(x, y, width, height);
 		button.setVisible(true);
@@ -603,5 +690,13 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 		
 	}
 	
+	public void setMiniButtons(JButton name, ImageIcon icon, int x) {
+		name.setBounds(x, 0, 32, 32);
+		name.setVisible(true);
+		name.setFocusable(false);
+		name.addActionListener(this);
+		name.setIcon(icon);
+		
+	}
 
 }
