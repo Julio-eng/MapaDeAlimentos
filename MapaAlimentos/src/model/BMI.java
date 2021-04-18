@@ -1,5 +1,8 @@
 package model;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public final class BMI extends BodyIndexCalculator {
 	
 	private double weight;
@@ -21,18 +24,24 @@ public final class BMI extends BodyIndexCalculator {
 	}
 	
 	//method to calculate BMI
-	public double bmiCalculation() {
-		return this.weight/(this.height*this.height);
+	public String bmiCalculation() {
+		
+		double operation = this.weight/(this.height*this.height);
+		operation = Math.round(operation*1000)/1000.0;
+		
+		return String.valueOf(operation);
 	}
 	
 	//getters and setters
-	public double getPeso() {
+	public double getBoddyMass() {
 		return weight;
 	}
 
-	public void setPeso(double weight) {
+	public void setBoddyMass(double weight) {
 		this.weight = weight;
 	}
+
+
 	
 	
 }
