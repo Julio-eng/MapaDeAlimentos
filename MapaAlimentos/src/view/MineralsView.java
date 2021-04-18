@@ -57,8 +57,10 @@ public class MineralsView implements ListSelectionListener, ActionListener{
 	private JButton menu3 = new JButton();
 	
 	public MineralsView(){
-		// Calling method to set buttons and MiniButtns---------------------------------------------------------------------------------
-		setButtons(add, 300, 50);
+		// Calling method to set buttons and MiniButtns--------------------------------------------------------------------
+		add.setBounds(30, 670, 100, 50);
+		add.setFocusable(false);
+		add.addActionListener(this);
 		setButtons(save, 200, 705);
 		setButtons(delete, 379, 705);
 		setButtons(edit, 5, 705);
@@ -71,11 +73,12 @@ public class MineralsView implements ListSelectionListener, ActionListener{
 		setMiniButtons(menu3, menuIcon2, 32);
 		
 		// Minerals List -------------------------------------------------------------------------------------------------
-		mineralsList.setBounds(10, 82, 200, 700);
+		mineralsList.setBounds(30, 100, 300, 550);
 		mineralsList.setFont(new Font("Arial", Font.PLAIN,20));
 		mineralsList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		mineralsList.addListSelectionListener(this);
 		mineralsList.setModel(model);
+		mineralsList.setBorder(BorderFactory.createLineBorder(null));
 		
 		// Adding elements to the model ----------------------------------------------------------------------------------
 		model.addElement(new MineralsControl().getCalcium());
@@ -131,9 +134,9 @@ public class MineralsView implements ListSelectionListener, ActionListener{
 		infoPanel.setLayout(null);
 		
 		// setting the minerals label
-		minerals.setBounds(10, 42, 200, 30);
+		minerals.setBounds(30, 50, 300, 30);
 		minerals.setText("Minerais");
-		minerals.setFont(new Font("Arial", Font.PLAIN, 30));
+		minerals.setFont(new Font("Arial", Font.BOLD, 30));
 		
 		// adding components to the list panel ---------------------------------------------------------------------------
 		listPanel.add(minerals);
@@ -143,7 +146,7 @@ public class MineralsView implements ListSelectionListener, ActionListener{
 		listPanel.add(menu);
 		// List panel
 		listPanel.setSize(500, 800);
-		listPanel.setBackground(new Color(255,222,173));
+		listPanel.setBackground(new Color(240, 192, 134));
 		listPanel.setLayout(null);
 		
 		// Adding panels to the frame ------------------------------------------------------------------------------------
@@ -152,7 +155,7 @@ public class MineralsView implements ListSelectionListener, ActionListener{
 		frame.add(addPanel);
 		// Frame
 		frame.setSize(500, 800);
-		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(null);
 		frame.setResizable(false);
 		frame.setVisible(true);
@@ -184,6 +187,9 @@ public class MineralsView implements ListSelectionListener, ActionListener{
 			setInformation(functions, 250, 140, object.getMainFunctions());
 			setInformation(diseases, 425, 100, object.getDiseasesCaused());
 			setInformation(symptoms, 560, 140, object.getDeficiencySymptoms());
+			delete.setVisible(true);
+			edit.setVisible(true);
+			save2.setVisible(true);
 		}
 		
 	}
@@ -226,20 +232,26 @@ public class MineralsView implements ListSelectionListener, ActionListener{
 			setTextArea(addFunctions, 265	, 120);
 			setTextArea(addDiseases, 420, 120);
 			setTextArea(addSymptoms, 575, 120);
+			save.setVisible(true);
 		}
 		
 		if(e.getSource() == save) {
-			addPanel.setVisible(false);
-			listPanel.setVisible(true);
-			infoPanel.setVisible(false);
-			VitaminsAndMinerals mineral = new VitaminsAndMinerals();
-			mineral.setName(addName.getText());
-			mineral.setSignificantSources(addSources.getText());
-			mineral.setMainFunctions(addFunctions.getText());
-			mineral.setDiseasesCaused(addDiseases.getText());
-			mineral.setDeficiencySymptoms(addSymptoms.getText());
-			model.addElement(mineral);
-			JOptionPane.showMessageDialog(null, "Mineral adicionado!", null, JOptionPane.INFORMATION_MESSAGE);
+			if(addName.getText().isBlank()) {
+				JOptionPane.showMessageDialog(null, "Digite pelo menos o nome para que um novo mineral seja "
+						+ "adicinado!", null, JOptionPane.INFORMATION_MESSAGE);
+			} else {
+				addPanel.setVisible(false);
+				listPanel.setVisible(true);
+				infoPanel.setVisible(false);
+				VitaminsAndMinerals mineral = new VitaminsAndMinerals();
+				mineral.setName(addName.getText());
+				mineral.setSignificantSources(addSources.getText());
+				mineral.setMainFunctions(addFunctions.getText());
+				mineral.setDiseasesCaused(addDiseases.getText());
+				mineral.setDeficiencySymptoms(addSymptoms.getText());
+				model.addElement(mineral);
+				JOptionPane.showMessageDialog(null, "Mineral adicionado!", null, JOptionPane.INFORMATION_MESSAGE);
+			}
 		}
 		
 		if(e.getSource() == delete) {
@@ -266,6 +278,7 @@ public class MineralsView implements ListSelectionListener, ActionListener{
 			object.setDiseasesCaused(diseases.getText());
 			object.setMainFunctions(functions.getText());
 			object.setDeficiencySymptoms(symptoms.getText());
+			JOptionPane.showMessageDialog(null, "Suas informacoes foram salvas!", null, JOptionPane.INFORMATION_MESSAGE);
 		}
 		
 		if(e.getSource() == regress) {
@@ -308,12 +321,14 @@ public class MineralsView implements ListSelectionListener, ActionListener{
 		name.setLineWrap(true);
 		name.setWrapStyleWord(true);
 		name.setText(null);
+		name.setBorder(BorderFactory.createLineBorder(null));
 	}
 	
 	public void setButtons(JButton name, int x, int y) {
 		name.setBounds(x, y, 100, 50);
-		name.setFocusable(true);
+		name.setFocusable(false);
 		name.addActionListener(this);
+		name.setVisible(false);	
 	}
 	
 	public void setMiniButtons(JButton name, ImageIcon icon, int x) {
