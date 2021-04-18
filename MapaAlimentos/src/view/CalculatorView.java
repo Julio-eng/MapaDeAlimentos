@@ -9,6 +9,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -41,6 +42,7 @@ public class CalculatorView implements ActionListener {
 	private BAI objectBAI = new BAI();
 	private BMI objectBMI = new BMI();
 	private JTextArea displayInformations = new JTextArea();
+	private JTextArea displayInformations2 = new JTextArea();
 
 	
 
@@ -79,7 +81,8 @@ public class CalculatorView implements ActionListener {
 		mainPanel.add(boddyAdiposityIndexTable);
 		mainPanel.add(boddyMassIndexTable);
 		mainPanel.add(regress);
-		mainPanel.add(menu);		
+		mainPanel.add(menu);	
+		mainPanel.add(displayInformations2);
 		
 		//CALCULATOR-LABEL-----------------------------------------------------------------------------------------------------------------------
 		titleLabels(calculator, 160, 70, 30);
@@ -104,11 +107,12 @@ public class CalculatorView implements ActionListener {
 		displayBAICalculation.setBounds(350, 477, 100 , 20);
 		displayBAICalculation.setEditable(false);
 		
+		
 		//Buttons----------------------------------------------------------------------------------------------------------------------------
 		setButtons(cleanJTxtFields, 130, 300, 100, 50);
 		setButtons(calculate, 260, 300, 100, 50);
-		setButtons(boddyMassIndexTable, 130, 600, 100, 50);
-		setButtons(boddyAdiposityIndexTable, 260, 600, 100, 50);
+		setButtons(boddyMassIndexTable, 130, 650, 100, 50);
+		setButtons(boddyAdiposityIndexTable, 260, 650, 100, 50);
 		setMiniButtons(regress, regressIcon, 0);
 		setMiniButtons(menu, menuIcon, 32);
 		
@@ -116,14 +120,10 @@ public class CalculatorView implements ActionListener {
 		displayInformations.setBounds(20, 450, 310, 47);
 		displayInformations.setVisible(true);
 		displayInformations.setLayout(null);
-		displayInformations.setFont(new Font("Arial", Font.BOLD, 20));
+		displayInformations.setFont(new Font("Arial", Font.PLAIN, 20));
 		displayInformations.setBackground(new Color(240, 192, 134));
-		displayInformations.setText(" Indice de Massa Corporal: "
+		displayInformations.setText(" Indice de Massa Corporal:"
 				+ "\n Indice de Adiposidade Corporal:");
-		
-		
-		
-	
 
 	}
 	
@@ -131,17 +131,46 @@ public class CalculatorView implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		
 		if(e.getSource() == calculate) {
+				
+				//JOptionPane.showMessageDialog(null, "Por", null, JOptionPane.INFORMATION_MESSAGE);
 
+				
+				if(heightJTxt.getText().isEmpty()) {
+					
+					JOptionPane.showMessageDialog(null, "A altura e um campo obrigatorio!", null, JOptionPane.INFORMATION_MESSAGE);
+					
+				}
+				else if(bodyMassJTxt.getText().isEmpty() && waistCircunferenceJTxt.getText().isEmpty()) {
+					
+					JOptionPane.showMessageDialog(null, "A Massa Coporal e a Circunferencia da cintura nao podem estar ambos vazios!", null, JOptionPane.INFORMATION_MESSAGE);
+					
+				}
+				else if(!heightJTxt.getText().isEmpty() && !bodyMassJTxt.getText().isEmpty()) {
+					
+					objectBMI.setHeight(Double.parseDouble(heightJTxt.getText()));
+					objectBMI.setBoddyMass(Double.parseDouble(bodyMassJTxt.getText()));		
+					displayBMICalculation.setText(objectBMI.bmiCalculation() + " Kg/m²");
+					
+				} 
+				else if(!heightJTxt.getText().isEmpty() && !waistCircunferenceJTxt.getText().isEmpty()) {
+					
+					objectBAI.setHeight(Double.parseDouble(heightJTxt.getText()));
+					objectBAI.setHip(Double.parseDouble(waistCircunferenceJTxt.getText()));
+					displayBAICalculation.setText(objectBAI.baiCalculation() + "%");
+					
+				}	
 			
-			objectBMI.setHeight(Double.parseDouble(heightJTxt.getText()));
-			objectBMI.setBoddyMass(Double.parseDouble(bodyMassJTxt.getText()));		
-			displayBMICalculation.setText(objectBMI.bmiCalculation() + " Kg/m²");
 			
-			objectBAI.setHeight(Double.parseDouble(heightJTxt.getText()));
-			objectBAI.setHip(Double.parseDouble(waistCircunferenceJTxt.getText()));
-			displayBAICalculation.setText(objectBAI.baiCalculation()+ "%");
+		}
+		
+		if(e.getSource() == cleanJTxtFields) {
 
-			
+			heightJTxt.setText("");
+			bodyMassJTxt.setText("");
+			waistCircunferenceJTxt.setText("");
+			displayBMICalculation.setText("");
+			displayBAICalculation.setText("");
+						
 		}
 		
 		if(e.getSource() == boddyMassIndexTable) {
@@ -178,7 +207,7 @@ public class CalculatorView implements ActionListener {
 	
 	public void setLabels(JLabel label, int y) {
 		
-		label.setFont(new Font("Arial", Font.BOLD, 20));
+		label.setFont(new Font("Arial", Font.PLAIN, 20));
 		label.setBounds(30, y, 300, 30);
 		label.setVisible(true);
 		label.setLayout(null);
@@ -196,7 +225,7 @@ public class CalculatorView implements ActionListener {
 	
 	public void titleLabels(JLabel label, int x, int y, int tamanhoFonte) {
 		
-		label.setFont(new Font("Arial", Font.BOLD, tamanhoFonte));
+		label.setFont(new Font("Arial", Font.PLAIN, tamanhoFonte));
 		label.setBounds(x, y, 350, 30);
 		label.setVisible(true);
 		label.setLayout(null);
@@ -238,10 +267,11 @@ public class CalculatorView implements ActionListener {
 		else if(bodyMassIndexOperation >= 40) {
 			return "Obesidade Grau 3";
 		}
-		
+
 		return "";
 	}
 */
+	
 	public void setMiniButtons(JButton name, ImageIcon icon, int x) {
 		name.setBounds(x, 0, 32, 32);
 		name.setVisible(true);
