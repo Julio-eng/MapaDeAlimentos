@@ -73,6 +73,7 @@ public class MainView extends JFrame implements ActionListener {
 		
 		if(e.getSource() == alimentButton) {
 			 new AlimentView();
+			 this.dispose();
 		}
 		
 		if(e.getSource() == vitaminsButton) {
@@ -92,6 +93,7 @@ public class MainView extends JFrame implements ActionListener {
 		
 		if(e.getSource() == calculatorButton) {
 			 new CalculatorView();
+			 this.dispose(); 
 		}
 	}
 	
