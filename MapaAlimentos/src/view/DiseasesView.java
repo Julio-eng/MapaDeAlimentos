@@ -54,7 +54,9 @@ public class DiseasesView implements ListSelectionListener, ActionListener{
 	
 	public DiseasesView(){
 		// Buttons -------------------------------------------------------------------------------------------------------
-		setButtons(add, 300, 50);
+		add.setBounds(30, 670, 100, 50);
+		add.setFocusable(false);
+		add.addActionListener(this);
 		setButtons(save, 200, 705);
 		setButtons(delete, 379, 705);
 		setButtons(edit, 5, 705);
@@ -67,11 +69,12 @@ public class DiseasesView implements ListSelectionListener, ActionListener{
 		setMiniButtons(menu3, menuIcon2, 32);
 		
 		// Disease List --------------------------------------------------------------------------------------------------
-		diseasesList.setBounds(10, 82, 225, 700);
+		diseasesList.setBounds(30, 100, 300, 550);
 		diseasesList.setFont(new Font("Arial", Font.PLAIN,20));
 		diseasesList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		diseasesList.addListSelectionListener(this);
 		diseasesList.setModel(model);
+		diseasesList.setBorder(BorderFactory.createLineBorder(null));
 		
 		// Adding elements to the model ----------------------------------------------------------------------------------
 		model.addElement(new DiseaseControl().getLactoseIntolerant());
@@ -101,9 +104,9 @@ public class DiseasesView implements ListSelectionListener, ActionListener{
 		infoPanel.add(title1);
 		infoPanel.add(title2);
 		infoPanel.add(title3);
+		infoPanel.add(avoidAliments);
 		infoPanel.add(diseaseInfo);
 		infoPanel.add(symptoms);
-		infoPanel.add(avoidAliments);
 		infoPanel.add(delete);
 		infoPanel.add(edit);
 		infoPanel.add(save2);
@@ -125,7 +128,7 @@ public class DiseasesView implements ListSelectionListener, ActionListener{
 		listPanel.add(menu);
 		// List panel
 		listPanel.setSize(500, 800);
-		listPanel.setBackground(new Color(255,222,173));
+		listPanel.setBackground(new Color(240, 192, 134));
 		listPanel.setLayout(null);
 		
 		// Adding panels to the frame ------------------------------------------------------------------------------------
@@ -134,7 +137,7 @@ public class DiseasesView implements ListSelectionListener, ActionListener{
 		frame.add(addPanel);
 		// Frame
 		frame.setSize(500, 800);
-		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(null);
 		frame.setResizable(false);
 		frame.setVisible(true);
@@ -164,6 +167,9 @@ public class DiseasesView implements ListSelectionListener, ActionListener{
 			setInformation(diseaseInfo, 75, 140, object.getDiseaseInformation());
 			setInformation(symptoms, 250, 140, object.getSymptoms());
 			setInformation(avoidAliments, 425, 100, object.getAvoidAliments());
+			delete.setVisible(true);
+			edit.setVisible(true);
+			save2.setVisible(true);
 			
 		}
 		
@@ -205,19 +211,25 @@ public class DiseasesView implements ListSelectionListener, ActionListener{
 			setTextArea(addInfo, 110, 120);
 			setTextArea(addSymptoms, 265	, 120);
 			setTextArea(addAvoidAliments, 420, 120);
+			save.setVisible(true);
 		}
 		
 		if(e.getSource() == save) {
-			addPanel.setVisible(false);
-			listPanel.setVisible(true);
-			infoPanel.setVisible(false);
-			Disease disease = new Disease();
-			disease.setName(addName.getText());
-			disease.setDiseaseInformation(addInfo.getText());
-			disease.setSymptoms(addSymptoms.getText());
-			disease.setAvoidAliments(addAvoidAliments.getText());
-			model.addElement(disease);
-			JOptionPane.showMessageDialog(null, "Doenca adicionada!", null, JOptionPane.INFORMATION_MESSAGE);
+			if(addName.getText().isBlank()) {
+				JOptionPane.showMessageDialog(null, "Digite pelo menos o nome para que uma nova doenca seja "
+						+ "adicinada!", null, JOptionPane.INFORMATION_MESSAGE);
+			} else {
+				addPanel.setVisible(false);
+				listPanel.setVisible(true);
+				infoPanel.setVisible(false);
+				Disease disease = new Disease();
+				disease.setName(addName.getText());
+				disease.setDiseaseInformation(addInfo.getText());
+				disease.setSymptoms(addSymptoms.getText());
+				disease.setAvoidAliments(addAvoidAliments.getText());
+				model.addElement(disease);
+				JOptionPane.showMessageDialog(null, "Doenca adicionada!", null, JOptionPane.INFORMATION_MESSAGE);
+			}
 		}
 		
 		if(e.getSource() == delete) {
@@ -243,6 +255,7 @@ public class DiseasesView implements ListSelectionListener, ActionListener{
 			object.setDiseaseInformation(diseaseInfo.getText());
 			object.setSymptoms(symptoms.getText());
 			object.setAvoidAliments(avoidAliments.getText());
+			JOptionPane.showMessageDialog(null, "Suas informacoes foram salvas!", null, JOptionPane.INFORMATION_MESSAGE);
 		}
 		
 		if(e.getSource() == regress) {
@@ -288,8 +301,9 @@ public void setLabels(JLabel name, int y, String label) {
 	
 	public void setButtons(JButton name, int x, int y) {
 		name.setBounds(x, y, 100, 50);
-		name.setFocusable(true);
+		name.setFocusable(false);
 		name.addActionListener(this);
+		name.setVisible(false);
 	}
 	
 	public void setMiniButtons(JButton name, ImageIcon icon, int x) {
