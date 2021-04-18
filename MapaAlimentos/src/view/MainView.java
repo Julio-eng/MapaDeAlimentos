@@ -17,7 +17,9 @@ public class MainView extends JFrame implements ActionListener {
 	private JButton diseasesButton = new JButton();
 	private JButton calculatorButton = new JButton();
 	
-	private JLabel programName = new JLabel("Menu Principal");
+	private JLabel mainMenuTitle = new JLabel("Menu Principal");
+	private JLabel programName = new JLabel("Mapa de Alimentos");
+
 	
 	
 	public MainView() {
@@ -61,9 +63,16 @@ public class MainView extends JFrame implements ActionListener {
 		calculatorButton.setText("Calculadora");
 		calculatorButton.setFocusable(false);
 		
+		
 		this.add(programName);
-		programName.setFont(new Font("Arial", Font.BOLD, 30));
-		programName.setBounds(140, 80, 300, 30);
+		programName.setFont(new Font("Arial", Font.BOLD, 33));
+		programName.setBounds(100, 50, 300, 33);
+		
+		this.add(mainMenuTitle);
+		mainMenuTitle.setFont(new Font("Arial", Font.PLAIN, 27));
+		mainMenuTitle.setBounds(160, 130, 300, 30);
+		
+
 		
 	}
 
