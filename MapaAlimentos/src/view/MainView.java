@@ -65,7 +65,6 @@ public class MainView extends JFrame implements ActionListener {
 		programName.setFont(new Font("Arial", Font.BOLD, 30));
 		programName.setBounds(140, 80, 300, 30);
 		
-	
 	}
 
 
@@ -73,33 +72,26 @@ public class MainView extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		
 		if(e.getSource() == alimentButton) {
-			
 			 new AlimentView();
-			
 		}
 		
 		if(e.getSource() == vitaminsButton) {
-			
 			 new VitaminsView();
-			
+			 this.dispose(); 
 		}
 		
 		if(e.getSource() == mineralsButton) {
-			
-			 new MineralsView();
-			
+			new MineralsView();
+			this.dispose(); 
 		}
 		
 		if(e.getSource() == diseasesButton) {
-			
 			 new DiseasesView();
-			
+			 this.dispose(); 
 		}
 		
 		if(e.getSource() == calculatorButton) {
-			
 			 new CalculatorView();
-			
 		}
 	}
 	
