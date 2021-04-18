@@ -8,7 +8,7 @@ public final class BMI extends BodyIndexCalculator {
 	private double weight;
 	
 	//constructor method
-	public BMI(Double height, double weight) {
+	public BMI(double height, double weight) {
 		this.height = height;
 		this.weight = weight;
 	}
@@ -27,7 +27,7 @@ public final class BMI extends BodyIndexCalculator {
 	public String bmiCalculation() {
 		
 		double operation = this.weight/(this.height*this.height);
-		operation = Math.round(operation*1000)/1000.0;
+		operation = Math.round(operation*100)/100.0;
 		
 		return String.valueOf(operation);
 	}
