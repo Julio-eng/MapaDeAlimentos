@@ -1,7 +1,6 @@
 package view;
 
-import java.awt.Color;
-import java.awt.Font;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -14,12 +13,17 @@ import model.VitaminsAndMinerals;
 
 public class MineralsView implements ListSelectionListener, ActionListener{
 	
-	private JFrame frame = new JFrame();
+	private JFrame frame = new JFrame("Minerais");
+	private ImageIcon regressIcon = new ImageIcon("regress.png");
+	private ImageIcon menuIcon2 = new ImageIcon("menu.png");
 	// List view
 	private JPanel listPanel = new JPanel();
+	private JLabel minerals = new JLabel();
 	private JList<VitaminsAndMinerals>  mineralsList = new JList<>();
 	private DefaultListModel<VitaminsAndMinerals> model = new DefaultListModel<>();
 	private JButton add = new JButton("Adicionar");
+	private JButton regress = new JButton();
+	private JButton menu = new JButton();
 	// info view ---------------------------------------------------------------------------------------------------------
 	private JPanel infoPanel = new JPanel();
 	private JTextArea sources = new JTextArea();
@@ -34,6 +38,8 @@ public class MineralsView implements ListSelectionListener, ActionListener{
 	private JButton delete = new JButton("Deletar");
 	private JButton edit = new JButton("Editar");
 	private JButton save2 = new JButton("Salvar");
+	private JButton regress2 = new JButton();
+	private JButton menu2 = new JButton();
 	// add view ----------------------------------------------------------------------------------------------------------
 	private JPanel addPanel = new JPanel();
 	private JTextArea addName = new JTextArea();
@@ -47,28 +53,26 @@ public class MineralsView implements ListSelectionListener, ActionListener{
 	private JLabel diseases2 = new JLabel();
 	private JLabel symptoms2 = new JLabel();
 	private JButton save = new JButton("Salvar");
+	private JButton regress3 = new JButton();
+	private JButton menu3 = new JButton();
 	
 	public MineralsView(){
-		// Buttons -------------------------------------------------------------------------------------------------------
-		add.setBounds(325, 5, 100, 50);
-		add.setFocusable(true);
-		add.addActionListener(this);
-		save.setBounds(200, 705, 100, 50);
-		save.setFocusable(false);
-		save.addActionListener(this);
-		delete.setBounds(379, 705, 100, 50);
-		delete.setFocusable(false);
-		delete.addActionListener(this);
-		edit.setBounds(5, 705, 100, 50);
-		edit.setFocusable(false);
-		edit.addActionListener(this);
-		save2.setBounds(115, 705, 100, 50);
-		save2.setFocusable(false);
-		save2.addActionListener(this);
+		// Calling method to set buttons and MiniButtns---------------------------------------------------------------------------------
+		setButtons(add, 300, 50);
+		setButtons(save, 200, 705);
+		setButtons(delete, 379, 705);
+		setButtons(edit, 5, 705);
+		setButtons(save2, 115, 705);
+		setMiniButtons(regress, regressIcon, 0);
+		setMiniButtons(menu, menuIcon2, 32);
+		setMiniButtons(regress2, regressIcon, 0);
+		setMiniButtons(menu2, menuIcon2, 32);
+		setMiniButtons(regress3, regressIcon, 0);
+		setMiniButtons(menu3, menuIcon2, 32);
 		
 		// Minerals List -------------------------------------------------------------------------------------------------
-		mineralsList.setBounds(5, 5, 200, 300);
-		mineralsList.setFont(new Font("Arial", Font.BOLD,20));
+		mineralsList.setBounds(10, 82, 200, 700);
+		mineralsList.setFont(new Font("Arial", Font.PLAIN,20));
 		mineralsList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		mineralsList.addListSelectionListener(this);
 		mineralsList.setModel(model);
@@ -86,6 +90,8 @@ public class MineralsView implements ListSelectionListener, ActionListener{
 		model.addElement(new MineralsControl().getZinc());
 		
 		// Adding components to the Add panel ----------------------------------------------------------------------------
+		addPanel.add(regress3);
+		addPanel.add(menu3);
 		addPanel.add(addName);
 		addPanel.add(addSources);
 		addPanel.add(addFunctions);
@@ -96,13 +102,16 @@ public class MineralsView implements ListSelectionListener, ActionListener{
 		addPanel.add(functions2);
 		addPanel.add(diseases2);
 		addPanel.add(symptoms2);
-		addPanel.add(save);
+		addPanel.add(save); 
+	
 		// Add panel
 		addPanel.setSize(500, 800); 
 		addPanel.setLayout(null);
 		addPanel.setBackground(new Color(240, 192, 134));
 		
 		// Adding components to the information panel --------------------------------------------------------------------
+		infoPanel.add(regress2);
+		infoPanel.add(menu2);
 		infoPanel.add(name);
 		infoPanel.add(title1);
 		infoPanel.add(title2);
@@ -115,14 +124,23 @@ public class MineralsView implements ListSelectionListener, ActionListener{
 		infoPanel.add(delete);
 		infoPanel.add(edit);
 		infoPanel.add(save2);
+		
 		// InfoPanel
 		infoPanel.setSize(500, 800);
 		infoPanel.setBackground(new Color(255,222,173));
 		infoPanel.setLayout(null);
 		
+		// setting the minerals label
+		minerals.setBounds(10, 42, 200, 30);
+		minerals.setText("Minerais");
+		minerals.setFont(new Font("Arial", Font.PLAIN, 30));
+		
 		// adding components to the list panel ---------------------------------------------------------------------------
+		listPanel.add(minerals);
 		listPanel.add(mineralsList);
 		listPanel.add(add);
+		listPanel.add(regress);
+		listPanel.add(menu);
 		// List panel
 		listPanel.setSize(500, 800);
 		listPanel.setBackground(new Color(255,222,173));
@@ -136,6 +154,7 @@ public class MineralsView implements ListSelectionListener, ActionListener{
 		frame.setSize(500, 800);
 		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(null);
+		frame.setResizable(false);
 		frame.setVisible(true);
 		
 	}
@@ -155,12 +174,12 @@ public class MineralsView implements ListSelectionListener, ActionListener{
 			name.setVerticalAlignment(JLabel.CENTER);
 			name.setText(object.getName());
 			name.setFont(new Font("Arial",Font.PLAIN, 20));
-			// method to set the titles part
-			setTitle(title1, 40, "Significant Sources");
-			setTitle(title2, 215, "Main functions");
-			setTitle(title3, 390, "diseases caused by deficiency");
-			setTitle(title4, 525, "Symptomes caused by deficiency");
-			// method to set the information part
+			// Calling the method to set the titles part
+			setTitle(title1, 40, "Fontes significativas");
+			setTitle(title2, 215, "Principais funcoes");
+			setTitle(title3, 390, "Doencas causadas pela deficiencia");
+			setTitle(title4, 525, "Sintomas causados pela deficiencia");
+			// Calling the method to set the information part
 			setInformation(sources, 75, 140, object.getSignificantSources());
 			setInformation(functions, 250, 140, object.getMainFunctions());
 			setInformation(diseases, 425, 100, object.getDiseasesCaused());
@@ -180,7 +199,7 @@ public class MineralsView implements ListSelectionListener, ActionListener{
 	}
 	
 	public void setInformation(JTextArea information, int y, int height, String text) {
-		information.setBounds(10, y, 485, height);
+		information.setBounds(10, y, 475, height);
 		information.setBackground(new Color(255,222,173)); 
 		information.setText(text);
 		information.setFont(new Font("Arial",Font.PLAIN, 20));
@@ -195,13 +214,13 @@ public class MineralsView implements ListSelectionListener, ActionListener{
 			listPanel.setVisible(false);
 			infoPanel.setVisible(false);
 			addPanel.setVisible(true);
-			// Labels
-			setLabels(name2, 0, "name");
-			setLabels(sources2, 75, "Significant Sources");
-			setLabels(functions2, 230, "Main functions");
-			setLabels(diseases2, 385, "diseases caused by deficiency");
-			setLabels(symptoms2, 540, "Symptomes caused by deficiency");
-			// TextFields
+			// Calling the method to set Labels
+			setLabels(name2, 0, "Nome");
+			setLabels(sources2, 75, "Fontes significativas");
+			setLabels(functions2, 230, "Principais funcoes");
+			setLabels(diseases2, 385, "Doencas causadas pela deficiencia");
+			setLabels(symptoms2, 540, "Sintomas causados pela deficiencia");
+			// Calling the method to set TextFields
 			setTextArea(addName, 35, 40);
 			setTextArea(addSources, 110, 120);
 			setTextArea(addFunctions, 265	, 120);
@@ -248,9 +267,32 @@ public class MineralsView implements ListSelectionListener, ActionListener{
 			object.setMainFunctions(functions.getText());
 			object.setDeficiencySymptoms(symptoms.getText());
 		}
+		
+		if(e.getSource() == regress) {
+			addPanel.setVisible(false);
+			listPanel.setVisible(false);
+			infoPanel.setVisible(false);
+			new MainView();
+			frame.dispose();
+		}
+		
+		if(e.getSource() == regress2 || e.getSource() == regress3) {
+			addPanel.setVisible(false);
+			listPanel.setVisible(true);
+			infoPanel.setVisible(false);
+		}
+		
+		if(e.getSource() == menu || e.getSource() == menu2 || e.getSource() == menu3) {
+			addPanel.setVisible(false);
+			listPanel.setVisible(false);
+			infoPanel.setVisible(false);
+			frame.dispose();
+			new MainView();
+		}
+		
 	}
 	
-public void setLabels(JLabel name, int y, String label) {
+	public void setLabels(JLabel name, int y, String label) {
 		name.setBounds(0, y, 485, 35);
 		name.setBackground(new Color(240, 192, 134)); 
 		name.setOpaque(true);
@@ -268,4 +310,17 @@ public void setLabels(JLabel name, int y, String label) {
 		name.setText(null);
 	}
 	
+	public void setButtons(JButton name, int x, int y) {
+		name.setBounds(x, y, 100, 50);
+		name.setFocusable(true);
+		name.addActionListener(this);
+	}
+	
+	public void setMiniButtons(JButton name, ImageIcon icon, int x) {
+		name.setBounds(x, 0, 32, 32);
+		name.setFocusable(false);
+		name.addActionListener(this);
+		name.setIcon(icon);
+		
+	}
 }
