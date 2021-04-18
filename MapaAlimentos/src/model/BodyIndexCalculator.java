@@ -6,11 +6,11 @@ public abstract class BodyIndexCalculator {
 	protected double height;
 	
 	///getters and setters
-	public double getheight() {
+	public double getHeight() {
 		return height;
 	}
 
-	public void setAltura(double height) {
+	public void setHeight(double height) {
 		this.height = height;
 	}
 }
