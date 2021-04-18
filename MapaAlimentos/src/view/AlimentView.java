@@ -6,12 +6,14 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -39,6 +41,8 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 	private JLabel nutritionalTableLabel = new JLabel("Tabela Nutricional");
 	private JLabel addANewAliment = new JLabel("Adicionar novo alimento");
 	private JLabel nameOfTheAliment = new JLabel();
+	private JLabel portionOfAliment = new JLabel("(Porcao: 100 g ou 100 ml)");
+	private JLabel portionOfAliment2 = new JLabel("(Porcao: 100 g ou 100 ml)");
 	//--------------------------BUTTONS---------------------------------------------------------------------------------------------------------
 	private JButton add = new JButton();
 	private JButton edit = new JButton();
@@ -115,7 +119,6 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 	private JTextField vitaminHSubmit2 = new JTextField();
 	private JTextField vitaminKSubmit2 = new JTextField();
 
-
 	
 	AlimentView(){
 		
@@ -171,6 +174,7 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 		addPanel.add(save);
 		addPanel.add(regress2);
 		addPanel.add(menu2);
+		addPanel.add(portionOfAliment2);
 		
 		//MAIN PANEL---------------------------------------------------------------------------------------------------------------
 		listOfAlimentsPanel.setVisible(true);
@@ -223,6 +227,7 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 		informationViewPanel.add(vitaminKSubmit2);
 		informationViewPanel.add(regress3);
 		informationViewPanel.add(menu3);
+		informationViewPanel.add(portionOfAliment);
 
 				
 		//LIST PANEL----------------------------------------------------------------------------------------------------------------
@@ -231,20 +236,29 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 		alimentListPanel.setLayout(null);
 		alimentListPanel.add(scroll);
 		
+		//PORTION LABEL
+		portionOfAliment.setBounds(146, 50, 200, 20);
+		portionOfAliment.setFont(new Font("Arial", Font.PLAIN, 15));
+		
+		//PORTION LABEL2
+		portionOfAliment2.setBounds(146, 50, 200, 20);
+		portionOfAliment2.setFont(new Font("Arial", Font.PLAIN, 15));
+		
+		
 		//LABEL--------------------------------------------------------------------------------------------------------------------
-		listOfAlimentsLabel.setFont(new Font("Arial", Font.BOLD, 30));
+		listOfAlimentsLabel.setFont(new Font("Arial", Font.PLAIN, 30));
 		listOfAlimentsLabel.setBounds(30, 50, 300, 30);
 		
 		//TABELA NUTRICIONAL LABEL--------------------------------------------------------------------------------------------------
-		nutritionalTableLabel.setFont(new Font("Arial", Font.BOLD, 30));
+		nutritionalTableLabel.setFont(new Font("Arial", Font.PLAIN, 30));
 		nutritionalTableLabel.setBounds(110, 20, 300, 30);
 		
 		//ADD A NEW ALIMENT LABEL--------------------------------------------------------------------------------------------------
-		addANewAliment.setFont(new Font("Arial", Font.BOLD, 30));
-		addANewAliment.setBounds(45, 40, 400, 30);
+		addANewAliment.setFont(new Font("Arial", Font.PLAIN, 30));
+		addANewAliment.setBounds(80, 20, 400, 24);
 		
 		//NAME OF THE ALIMENT UNDER "NUTRITIONAL TABLE------------------------------------------------------------------------------
-		nameOfTheAliment.setFont(new Font("Arial", Font.BOLD, 20));
+		nameOfTheAliment.setFont(new Font("Arial", Font.PLAIN, 20));
 		nameOfTheAliment.setBounds(44, 83, 400, 30);
 		
 		
@@ -253,7 +267,7 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 		nutritionalTableInformations.setEditable(false);
 		nutritionalTableInformations.setLineWrap(true);
 		nutritionalTableInformations.setWrapStyleWord(true);
-		nutritionalTableInformations.setFont(new Font("Arial", Font.BOLD, 20));
+		nutritionalTableInformations.setFont(new Font("Arial", Font.PLAIN, 20));
 		nutritionalTableInformations.setBackground(new Color(240, 192, 134));
 		
 		//JTEXTAREA OF ADD BUTTON---------------------------------------------------------------------------------------------------
@@ -261,7 +275,7 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 		nutritionalTableAdd.setEditable(false);
 		nutritionalTableAdd.setLineWrap(true);
 		nutritionalTableAdd.setWrapStyleWord(true);
-		nutritionalTableAdd.setFont(new Font("Arial", Font.BOLD, 20));
+		nutritionalTableAdd.setFont(new Font("Arial", Font.PLAIN, 20));
 		nutritionalTableAdd.setBackground(new Color(240, 192, 134));
 		
 		//BUTTONS------------------------------------------------------------------------------------------------------------------
@@ -288,13 +302,19 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 		model.addElement(new AlimentsControl().getBananaPrataCrua());
 		model.addElement(new AlimentsControl().getLeiteIntegralDeVaca());
 		model.addElement(new AlimentsControl().getLeiteDeVacaDesnatado());
+		model.addElement(new AlimentsControl().getAveia());
+		model.addElement(new AlimentsControl().getGoiaba());
+		model.addElement(new AlimentsControl().getMaca());
+		model.addElement(new AlimentsControl().getLaranja());
+		model.addElement(new AlimentsControl().getMelancia());
+		model.addElement(new AlimentsControl().getPepino());
+		model.addElement(new AlimentsControl().getBeterraba());
 		
 		//JLIST----------------------------------------------------------------------------------------------------------------------
 		alimentsJList.addListSelectionListener(this);
-		
-		
+		alimentsJList.setBorder(BorderFactory.createLineBorder(null));
+	
 	}
-
 
 	@Override
 	public void valueChanged(ListSelectionEvent e) {
@@ -306,8 +326,6 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 				listOfAlimentsPanel.setVisible(false);
 				informationViewPanel.setVisible(true);		
 				addPanel.setVisible(false);
-				
-		
 				
 				nutritionalTableInformations.setText("  Name: "
 						+ "\n  Calorias: "
@@ -336,9 +354,7 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 						+ "\n  Vitamina E: "
 						+ "\n  Vitamina H: "
 						+ "\n  Vitamina K: ");	
-
-				
-				  
+			  
 				int a = 1;
 				
 				displayObjectJTextFieldInformation(nameSubmit2, object.getName(),  83, 170, 20);
@@ -350,13 +366,13 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 				displayObjectJTextFieldInformation(ironSubmit2, object.getIron(),  5 + 83 + 23*a, 170, 20); a++;
 				displayObjectJTextFieldInformation(fiberSubmit2, object.getFiber(),  5 + 83 + 23*a, 170, 20); a++;
 			    displayObjectJTextFieldInformation(phosphorSubmit2, object.getPhosphor(),  6 + 83 + 23*a, 170, 20); a++;
-		   		displayObjectJTextFieldInformation(iodineSubmit2, object.getIodine(),  6 + 83 + 23*a, 170, 20); a++;
+		   		displayObjectJTextFieldInformation(iodineSubmit2, object.getIodine(),  8 + 83 + 23*a, 170, 20); a++;
 		 		displayObjectJTextFieldInformation(magnesiumSubmit2, object.getMagnesium(),  9 +  83 + 23*a, 170, 20); a++;
-       			displayObjectJTextFieldInformation(potassiumSubmit2, object.getPotassium(),  9 +  83 + 23*a, 170, 20); a++;
+       			displayObjectJTextFieldInformation(potassiumSubmit2, object.getPotassium(),  12 +  83 + 23*a, 170, 20); a++;
 				displayObjectJTextFieldInformation(sodiumSubmit2, object.getSodium(),  13 + 83 + 23*a, 170, 20); a++;
 				displayObjectJTextFieldInformation(zincSubmit2, object.getZinc(),  13 + 83 + 23*a, 170, 20); a++;
 				displayObjectJTextFieldInformation(vitaminASubmit2, object.getVitaminA(),  13 + 83 + 23*a, 170, 20); a++;
-			    displayObjectJTextFieldInformation(vitaminB1Submit2, object.getVitaminB1(),  16 + 83 + 23*a, 170, 20); a++;
+			    displayObjectJTextFieldInformation(vitaminB1Submit2, object.getVitaminB1(),  14 + 83 + 23*a, 170, 20); a++;
 			    displayObjectJTextFieldInformation(vitaminB2Submit2, object.getVitaminB2(),  16 + 83 + 23*a, 170, 20); a++;
 				displayObjectJTextFieldInformation(vitaminB3Submit2, object.getVitaminB3(),  16 + 83 + 23*a, 170, 20); a++;
 				displayObjectJTextFieldInformation(vitaminB5Submit2, object.getVitaminB5(),  17 + 83 + 23*a, 170, 20); a++;
@@ -367,12 +383,7 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 				displayObjectJTextFieldInformation(vitaminDSubmit2, object.getVitaminD(),  23 + 83 + 23*a, 170, 20); a++;
 				displayObjectJTextFieldInformation(vitaminESubmit2, object.getVitaminE(),  23 + 83 + 23*a, 170, 20); a++;
 				displayObjectJTextFieldInformation(vitaminHSubmit2, object.getVitaminH(),  23 + 83 + 23*a, 170, 20); a++;
-				displayObjectJTextFieldInformation(vitaminKSubmit2, object.getVitaminK(),  25 + 83 + 23*a, 170, 20); a++;
-				
-
-				
-				
-				
+				displayObjectJTextFieldInformation(vitaminKSubmit2, object.getVitaminK(),  25 + 83 + 23*a, 170, 20); a++;		
 				
 		}
 		
@@ -419,9 +430,6 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 			
 
 			runSetJTextFieldValues(93);
-
-			
-
 			
 		}
 		
@@ -463,6 +471,7 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 		addButtonObject.setVitaminK(vitaminKSubmit.getText());
 		
 		model.addElement(addButtonObject);
+		JOptionPane.showMessageDialog(null, "Alimento adicionado!", null, JOptionPane.INFORMATION_MESSAGE);
 		
 			
 		}
@@ -473,11 +482,7 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 		informationViewPanel.setVisible(false);
 		listOfAlimentsPanel.setVisible(true);
 		
-		model.removeElement(alimentsJList.getSelectedValue());
-		
-		
-		
-					
+		model.removeElement(alimentsJList.getSelectedValue());			
 			
 		}
 		
@@ -486,10 +491,7 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 			addPanel.setVisible(false);
 			informationViewPanel.setVisible(true);
 			listOfAlimentsPanel.setVisible(false);
-		
-			
-			
-			
+
 			nameSubmit2.setEditable(false);
 			calorieSubmit2.setEditable(true);
 			proteinsSubmit2.setEditable(true);
@@ -525,8 +527,7 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 			
 			addPanel.setVisible(false);
 			informationViewPanel.setVisible(false);
-			listOfAlimentsPanel.setVisible(true);
-			
+			listOfAlimentsPanel.setVisible(true);		
 			
 			NutritionalTable object = alimentsJList.getSelectedValue();	
 			
@@ -556,6 +557,8 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 			object.setVitaminE(vitaminESubmit2.getText());
 			object.setVitaminH(vitaminHSubmit2.getText());
 			object.setVitaminK(vitaminKSubmit2.getText());
+			
+			JOptionPane.showMessageDialog(null, "Suas informacoes foram salvas!", null, JOptionPane.INFORMATION_MESSAGE);
 			
 			
 		}
@@ -587,8 +590,6 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 			addPanel.setVisible(false);
 			informationViewPanel.setVisible(false);
 			listOfAlimentsPanel.setVisible(true);
-			
-		
 			
 		}
 		
@@ -632,7 +633,7 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 		variable.setVisible(true);
 		variable.setLayout(null);
 		variable.setBounds(180, y, 100 , 20);
-		
+		variable.setText(null);		
 		
 	}
 	
@@ -691,6 +692,7 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 	}
 	
 	public void setMiniButtons(JButton name, ImageIcon icon, int x) {
+		
 		name.setBounds(x, 0, 32, 32);
 		name.setVisible(true);
 		name.setFocusable(false);
