@@ -18,8 +18,6 @@ public class BMITableView extends JFrame implements ActionListener{
 	private ImageIcon regressIcon = new ImageIcon("regress.png");
 	private JButton regress = new JButton();
 	
-	
-	
 	public BMITableView() {
 		
 		this.setVisible(true);
@@ -38,7 +36,7 @@ public class BMITableView extends JFrame implements ActionListener{
 		displayTableInformationsBMI.setVisible(true);
 		displayTableInformationsBMI.setLayout(null);
 		displayTableInformationsBMI.setEditable(false);
-		displayTableInformationsBMI.setFont(new Font("Arial", Font.BOLD, 20));
+		displayTableInformationsBMI.setFont(new Font("Arial", Font.PLAIN, 20));
 		displayTableInformationsBMI.setBackground(new Color(240, 192, 134));
 		displayTableInformationsBMI.setText(" "
 				+ "IMC < 18,5:           Magreza"
@@ -50,7 +48,7 @@ public class BMITableView extends JFrame implements ActionListener{
 		
 		//TITLE LABEL
 		title.setBounds(110, 10, 400, 100);
-		title.setFont(new Font("Arial", Font.BOLD, 30));
+		title.setFont(new Font("Arial", Font.PLAIN, 30));
 		
 		//REGRESS
 		regress.setIcon(regressIcon);
