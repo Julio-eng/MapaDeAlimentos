@@ -21,8 +21,13 @@ public final class BAI extends BodyIndexCalculator {
 	}
 	
 	//method to calculate BAI
-	public double baiCalculation() {
-		return this.hip/(this.height*this.height);
+	public String baiCalculation() {
+		double operation = this.hip/(this.height*this.height);
+		
+		operation = Math.round(operation*1000)/1000.0;
+		
+		return String.valueOf(operation);
+
 	}
 	
 	//getters and setters
@@ -30,7 +35,7 @@ public final class BAI extends BodyIndexCalculator {
 		return hip;
 	}
 
-	public void sethip(double hip) {
+	public void setHip(double hip) {
 		this.hip = hip;
 	}
 	
