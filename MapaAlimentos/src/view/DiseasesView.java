@@ -13,13 +13,18 @@ import model.Disease;
 
 public class DiseasesView implements ListSelectionListener, ActionListener{
 	
-	private JFrame frame = new JFrame();
+	private JFrame frame = new JFrame("Doencas");
+	private ImageIcon regressIcon = new ImageIcon("regress.png");
+	private ImageIcon menuIcon2 = new ImageIcon("menu.png");
 	// List view
 	private JPanel listPanel = new JPanel();
+	private JLabel diseases = new JLabel();
 	private JList<Disease>  diseasesList = new JList<>();
 	private DefaultListModel<Disease> model = new DefaultListModel<>();
 	private JButton add = new JButton("Adicionar");
-	// info view --------------------------------------------------------------------------------------------
+	private JButton regress = new JButton();
+	private JButton menu = new JButton();
+	// info view ---------------------------------------------------------------------------------------------------------
 	private JPanel infoPanel = new JPanel();
 	private JTextArea diseaseInfo = new JTextArea();
 	private JTextArea symptoms = new JTextArea();
@@ -31,7 +36,9 @@ public class DiseasesView implements ListSelectionListener, ActionListener{
 	private JButton delete = new JButton("Deletar");
 	private JButton edit = new JButton("Editar");
 	private JButton save2 = new JButton("Salvar");
-	// add view ---------------------------------------------------------------------------------------------
+	private JButton regress2 = new JButton();
+	private JButton menu2 = new JButton();
+	// add view ----------------------------------------------------------------------------------------------------------
 	private JPanel addPanel = new JPanel();
 	private JTextArea addName = new JTextArea();
 	private JTextArea addInfo = new JTextArea();
@@ -42,37 +49,37 @@ public class DiseasesView implements ListSelectionListener, ActionListener{
 	private JLabel symptoms2 = new JLabel();
 	private JLabel avoidAliments2 = new JLabel();
 	private JButton save = new JButton("Salvar");
+	private JButton regress3 = new JButton();
+	private JButton menu3 = new JButton();
 	
 	public DiseasesView(){
-		// Buttons ------------------------------------------------------------------------------------------
-		add.setBounds(325, 5, 100, 50);
-		add.setFocusable(true);
-		add.addActionListener(this);
-		save.setBounds(200, 705, 100, 50);
-		save.setFocusable(false);
-		save.addActionListener(this);
-		delete.setBounds(379, 705, 100, 50);
-		delete.setFocusable(false);
-		delete.addActionListener(this);
-		edit.setBounds(5, 705, 100, 50);
-		edit.setFocusable(false);
-		edit.addActionListener(this);
-		save2.setBounds(115, 705, 100, 50);
-		save2.setFocusable(false);
-		save2.addActionListener(this);
+		// Buttons -------------------------------------------------------------------------------------------------------
+		setButtons(add, 300, 50);
+		setButtons(save, 200, 705);
+		setButtons(delete, 379, 705);
+		setButtons(edit, 5, 705);
+		setButtons(save2, 115, 705);
+		setMiniButtons(regress, regressIcon, 0);
+		setMiniButtons(menu, menuIcon2, 32);
+		setMiniButtons(regress2, regressIcon, 0);
+		setMiniButtons(menu2, menuIcon2, 32);
+		setMiniButtons(regress3, regressIcon, 0);
+		setMiniButtons(menu3, menuIcon2, 32);
 		
-		// Disease List --------------------------------------------------------------------------------------
-		diseasesList.setBounds(5, 5, 200, 300);
-		diseasesList.setFont(new Font("Arial", Font.BOLD,20));
+		// Disease List --------------------------------------------------------------------------------------------------
+		diseasesList.setBounds(10, 82, 225, 700);
+		diseasesList.setFont(new Font("Arial", Font.PLAIN,20));
 		diseasesList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		diseasesList.addListSelectionListener(this);
 		diseasesList.setModel(model);
 		
-		// Adding elements to the model -------------------------------------------------------------------
+		// Adding elements to the model ----------------------------------------------------------------------------------
 		model.addElement(new DiseaseControl().getLactoseIntolerant());
 		model.addElement(new DiseaseControl().getCeliac());
 		
-		// Adding components to the Add panel --------------------------------------------------------------
+		// Adding components to the Add panel ----------------------------------------------------------------------------
+		addPanel.add(regress3);
+		addPanel.add(menu3);
 		addPanel.add(addName);
 		addPanel.add(addInfo);
 		addPanel.add(addSymptoms);
@@ -87,7 +94,9 @@ public class DiseasesView implements ListSelectionListener, ActionListener{
 		addPanel.setLayout(null);
 		addPanel.setBackground(new Color(240, 192, 134));
 		
-		// Adding components to the information panel ------------------------------------------------------
+		// Adding components to the information panel --------------------------------------------------------------------
+		infoPanel.add(regress2);
+		infoPanel.add(menu2);
 		infoPanel.add(name);
 		infoPanel.add(title1);
 		infoPanel.add(title2);
@@ -103,15 +112,23 @@ public class DiseasesView implements ListSelectionListener, ActionListener{
 		infoPanel.setBackground(new Color(255,222,173));
 		infoPanel.setLayout(null);
 		
-		// adding components to the list panel --------------------------------------------------------------
+		// setting the diseases label
+		diseases.setBounds(10, 42, 200, 30);
+		diseases.setText("Doencas");
+		diseases.setFont(new Font("Arial", Font.PLAIN, 30));
+		
+		// adding components to the list panel ---------------------------------------------------------------------------
+		listPanel.add(diseases);
 		listPanel.add(diseasesList);
 		listPanel.add(add);
+		listPanel.add(regress);
+		listPanel.add(menu);
 		// List panel
 		listPanel.setSize(500, 800);
 		listPanel.setBackground(new Color(255,222,173));
 		listPanel.setLayout(null);
 		
-		// Adding panels to the frame ------------------------------------------------------------------------
+		// Adding panels to the frame ------------------------------------------------------------------------------------
 		frame.add(listPanel);
 		frame.add(infoPanel);
 		frame.add(addPanel);
@@ -119,6 +136,7 @@ public class DiseasesView implements ListSelectionListener, ActionListener{
 		frame.setSize(500, 800);
 		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(null);
+		frame.setResizable(false);
 		frame.setVisible(true);
 		
 	}
@@ -138,11 +156,11 @@ public class DiseasesView implements ListSelectionListener, ActionListener{
 			name.setVerticalAlignment(JLabel.CENTER);
 			name.setText(object.getName());
 			name.setFont(new Font("Arial",Font.PLAIN, 20));
-			// method to set the titles part
+			// Calling the method to set the titles part
 			setTitle(title1, 40, "Informacoes gerais");
 			setTitle(title2, 215, "Sintomas");
 			setTitle(title3, 390, "Alimentos que devem ser evitados");
-			// method to set the information part
+			// Calling the method to set the information part
 			setInformation(diseaseInfo, 75, 140, object.getDiseaseInformation());
 			setInformation(symptoms, 250, 140, object.getSymptoms());
 			setInformation(avoidAliments, 425, 100, object.getAvoidAliments());
@@ -162,7 +180,7 @@ public class DiseasesView implements ListSelectionListener, ActionListener{
 	}
 	
 	public void setInformation(JTextArea information, int y, int height, String text) {
-		information.setBounds(10, y, 485, height);
+		information.setBounds(10, y, 475, height);
 		information.setBackground(new Color(255,222,173)); 
 		information.setText(text);
 		information.setFont(new Font("Arial",Font.PLAIN, 20));
@@ -177,12 +195,12 @@ public class DiseasesView implements ListSelectionListener, ActionListener{
 			listPanel.setVisible(false);
 			infoPanel.setVisible(false);
 			addPanel.setVisible(true);
-			// Labels
+			// Calling the method to set Labels
 			setLabels(name2, 0, "Nome");
 			setLabels(diseaseInfo2, 75, "Informacoes gerais");
 			setLabels(symptoms2, 230, "Sintomas");
 			setLabels(avoidAliments2, 385, "Alimentos que devem ser evitados");
-			// TextFields
+			// Calling the method to set TextFields
 			setTextArea(addName, 35, 40);
 			setTextArea(addInfo, 110, 120);
 			setTextArea(addSymptoms, 265	, 120);
@@ -226,6 +244,28 @@ public class DiseasesView implements ListSelectionListener, ActionListener{
 			object.setSymptoms(symptoms.getText());
 			object.setAvoidAliments(avoidAliments.getText());
 		}
+		
+		if(e.getSource() == regress) {
+			addPanel.setVisible(false);
+			listPanel.setVisible(false);
+			infoPanel.setVisible(false);
+			new MainView();
+			frame.dispose();
+		}
+		
+		if(e.getSource() == regress2 || e.getSource() == regress3) {
+			addPanel.setVisible(false);
+			listPanel.setVisible(true);
+			infoPanel.setVisible(false);
+		}
+		
+		if(e.getSource() == menu || e.getSource() == menu2 || e.getSource() == menu3) {
+			addPanel.setVisible(false);
+			listPanel.setVisible(false);
+			infoPanel.setVisible(false);
+			frame.dispose();
+			new MainView();
+		}
 	}
 	
 public void setLabels(JLabel name, int y, String label) {
@@ -244,6 +284,20 @@ public void setLabels(JLabel name, int y, String label) {
 		name.setLineWrap(true);
 		name.setWrapStyleWord(true);
 		name.setText(null);
+	}
+	
+	public void setButtons(JButton name, int x, int y) {
+		name.setBounds(x, y, 100, 50);
+		name.setFocusable(true);
+		name.addActionListener(this);
+	}
+	
+	public void setMiniButtons(JButton name, ImageIcon icon, int x) {
+		name.setBounds(x, 0, 32, 32);
+		name.setFocusable(false);
+		name.addActionListener(this);
+		name.setIcon(icon);
+		
 	}
 	
 }
