@@ -58,7 +58,9 @@ public class VitaminsView implements ListSelectionListener, ActionListener{
 	
 	public VitaminsView(){
 		// Buttons -------------------------------------------------------------------------------------------------------
-		setButtons(add, 300, 50);
+		add.setBounds(30, 670, 100, 50);
+		add.setFocusable(false);
+		add.addActionListener(this);
 		setButtons(save, 200, 705);
 		setButtons(delete, 379, 705);
 		setButtons(edit, 5, 705);
@@ -70,12 +72,13 @@ public class VitaminsView implements ListSelectionListener, ActionListener{
 		setMiniButtons(regress3, regressIcon, 0);
 		setMiniButtons(menu3, menuIcon2, 32);
 		
-		// Minerals List -------------------------------------------------------------------------------------------------
-		vitaminsList.setBounds(10, 82, 200, 700);
+		// Vitamins List -------------------------------------------------------------------------------------------------
+		vitaminsList.setBounds(30, 100, 300, 550);
 		vitaminsList.setFont(new Font("Arial", Font.PLAIN,20));
 		vitaminsList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		vitaminsList.addListSelectionListener(this);
 		vitaminsList.setModel(model);
+		vitaminsList.setBorder(BorderFactory.createLineBorder(null));
 		
 		// Adding elements to the model ----------------------------------------------------------------------------------
 		model.addElement(new VitaminsControl().getVitaminA());
@@ -144,7 +147,7 @@ public class VitaminsView implements ListSelectionListener, ActionListener{
 		listPanel.add(menu);
 		// List panel
 		listPanel.setSize(500, 800);
-		listPanel.setBackground(new Color(255,222,173));
+		listPanel.setBackground(new Color(240, 192, 134));
 		listPanel.setLayout(null);
 		
 		// Adding panels to the frame ------------------------------------------------------------------------------------
@@ -153,7 +156,7 @@ public class VitaminsView implements ListSelectionListener, ActionListener{
 		frame.add(addPanel);
 		// Frame
 		frame.setSize(500, 800);
-		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(null);
 		frame.setResizable(false);
 		frame.setVisible(true);
@@ -185,6 +188,9 @@ public class VitaminsView implements ListSelectionListener, ActionListener{
 			setInformation(functions, 250, 140, object.getMainFunctions());
 			setInformation(diseases, 425, 100, object.getDiseasesCaused());
 			setInformation(symptoms, 560, 140, object.getDeficiencySymptoms());
+			delete.setVisible(true);
+			edit.setVisible(true);
+			save2.setVisible(true);
 		}
 		
 	}
@@ -227,20 +233,26 @@ public class VitaminsView implements ListSelectionListener, ActionListener{
 			setTextArea(addFunctions, 265	, 120);
 			setTextArea(addDiseases, 420, 120);
 			setTextArea(addSymptoms, 575, 120);
+			save.setVisible(true);
 		}
 		
 		if(e.getSource() == save) {
-			addPanel.setVisible(false);
-			listPanel.setVisible(true);
-			infoPanel.setVisible(false);
-			VitaminsAndMinerals vitamins = new VitaminsAndMinerals();
-			vitamins.setName(addName.getText());
-			vitamins.setSignificantSources(addSources.getText());
-			vitamins.setMainFunctions(addFunctions.getText());
-			vitamins.setDiseasesCaused(addDiseases.getText());
-			vitamins.setDeficiencySymptoms(addSymptoms.getText());
-			model.addElement(vitamins);
-			JOptionPane.showMessageDialog(null, "Vitamina adicionada!", null, JOptionPane.INFORMATION_MESSAGE);
+			if(addName.getText().isBlank()) {
+				JOptionPane.showMessageDialog(null, "Digite pelo menos o nome para que uma nova vitamina seja "
+						+ "adicinada!", null, JOptionPane.INFORMATION_MESSAGE);
+			} else {
+				addPanel.setVisible(false);
+				listPanel.setVisible(true);
+				infoPanel.setVisible(false);
+				VitaminsAndMinerals vitamins = new VitaminsAndMinerals();
+				vitamins.setName(addName.getText());
+				vitamins.setSignificantSources(addSources.getText());
+				vitamins.setMainFunctions(addFunctions.getText());
+				vitamins.setDiseasesCaused(addDiseases.getText());
+				vitamins.setDeficiencySymptoms(addSymptoms.getText());
+				model.addElement(vitamins);
+				JOptionPane.showMessageDialog(null, "Vitamina adicionada!", null, JOptionPane.INFORMATION_MESSAGE);
+			}
 		}
 		
 		if(e.getSource() == delete) {
@@ -267,6 +279,7 @@ public class VitaminsView implements ListSelectionListener, ActionListener{
 			object.setDiseasesCaused(diseases.getText());
 			object.setMainFunctions(functions.getText());
 			object.setDeficiencySymptoms(symptoms.getText());
+			JOptionPane.showMessageDialog(null, "Suas informacoes foram salvas!", null, JOptionPane.INFORMATION_MESSAGE);
 		}
 		
 		if(e.getSource() == regress) {
@@ -311,8 +324,9 @@ public class VitaminsView implements ListSelectionListener, ActionListener{
 	
 	public void setButtons(JButton name, int x, int y) {
 		name.setBounds(x, y, 100, 50);
-		name.setFocusable(true);
+		name.setFocusable(false);
 		name.addActionListener(this);
+		name.setVisible(false);
 	}
 	
 	public void setMiniButtons(JButton name, ImageIcon icon, int x) {
