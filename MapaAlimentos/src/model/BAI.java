@@ -5,7 +5,7 @@ public final class BAI extends BodyIndexCalculator {
 	private double hip;
 	
 	//constructor method 
-	public BAI(Double height, double hip) {
+	public BAI(double height, double hip) {
 		this.height = height;
 		this.hip = hip;
 	}
@@ -24,7 +24,7 @@ public final class BAI extends BodyIndexCalculator {
 	public String baiCalculation() {
 		double operation = this.hip/(this.height*this.height);
 		
-		operation = Math.round(operation*1000)/1000.0;
+		operation = Math.round(operation*100)/100.0;
 		
 		return String.valueOf(operation);
 
