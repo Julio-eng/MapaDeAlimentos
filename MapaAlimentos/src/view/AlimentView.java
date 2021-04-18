@@ -584,6 +584,7 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 	
 	public void standardizeButtons(JButton button, String name, int x, int y, int width, int height) {
 		
+		//HM
 		button.setText(name);
 		button.setBounds(x, y, width, height);
 		button.setVisible(true);
