@@ -14,7 +14,7 @@ import javax.swing.JTextArea;
 public class BAITableView extends JFrame implements ActionListener {
 	
 	
-	private JTextArea displayTableInformationsBMI = new JTextArea();
+	private JTextArea displayTableInformationsBAI = new JTextArea();
 	private JLabel title = new JLabel("Tabela IAC");
 	private ImageIcon regressIcon = new ImageIcon("regress.png");
 	private JButton regress = new JButton();
@@ -29,18 +29,18 @@ public class BAITableView extends JFrame implements ActionListener {
 		this.setResizable(false);
 		this.setLayout(null);
 		this.getContentPane().setBackground(new Color(240, 192, 134)); //background color	
-		this.add(displayTableInformationsBMI);
+		this.add(displayTableInformationsBAI);
 		this.add(title);
 		this.add(regress);
 		
 		//IMC TABLE
-		displayTableInformationsBMI.setBounds(20, 100, 400, 400);
-		displayTableInformationsBMI.setVisible(true);
-		displayTableInformationsBMI.setLayout(null);
-		displayTableInformationsBMI.setEditable(false);
-		displayTableInformationsBMI.setFont(new Font("Arial", Font.PLAIN, 20));
-		displayTableInformationsBMI.setBackground(new Color(240, 192, 134));
-		displayTableInformationsBMI.setText(" Sexo: Masculino"
+		displayTableInformationsBAI.setBounds(20, 100, 400, 400);
+		displayTableInformationsBAI.setVisible(true);
+		displayTableInformationsBAI.setLayout(null);
+		displayTableInformationsBAI.setEditable(false);
+		displayTableInformationsBAI.setFont(new Font("Arial", Font.PLAIN, 20));
+		displayTableInformationsBAI.setBackground(new Color(240, 192, 134));
+		displayTableInformationsBAI.setText(" Sexo: Masculino"
 				+ "\n Adiposidade normal: 8 a 20"
 				+ "\n Sobrepeso: 21 a 25"
 				+ "\n Obesidade: acima de 25"

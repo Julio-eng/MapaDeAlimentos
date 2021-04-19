@@ -35,6 +35,7 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 	private JPanel listOfAlimentsPanel = new JPanel();
 	private JPanel informationViewPanel = new JPanel();
 	private JPanel addPanel = new JPanel();
+	//labels
 	private JLabel listOfAlimentsLabel = new JLabel("Lista de Alimentos");
 	private JLabel nutritionalTableLabel = new JLabel("Tabela Nutricional");
 	private JLabel addANewAliment = new JLabel("Adicionar novo alimento");
