@@ -238,36 +238,6 @@ public class CalculatorView implements ActionListener {
 		
 	}
 	
-
-	
-/*
-	public String imcClassification(double height, double bodyMass) {
-				
-		double bodyMassIndexOperation = bodyMass/(height*height);
-		
-		if(bodyMassIndexOperation < 18.5) {
-			return "Baixo Peso";
-		}
-		else if(bodyMassIndexOperation > 18.4 && bodyMassIndexOperation < 25) {
-			return "Peso Normal";
-		}
-		else if(bodyMassIndexOperation >= 25 && bodyMassIndexOperation < 30) {
-			return "Pre-obesidade";
-		}
-		else if(bodyMassIndexOperation >= 30 && bodyMassIndexOperation < 35) {
-			return "Obesidade Grau 1";
-		}
-		else if(bodyMassIndexOperation >= 35 && bodyMassIndexOperation < 40) {
-			return "Obesidade Grau 2";
-		}
-		else if(bodyMassIndexOperation >= 40) {
-			return "Obesidade Grau 3";
-		}
-
-		return "";
-	}
-*/
-	
 	public void setMiniButtons(JButton name, ImageIcon icon, int x) {
 		name.setBounds(x, 0, 32, 32);
 		name.setVisible(true);
