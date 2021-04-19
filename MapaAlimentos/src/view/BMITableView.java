@@ -13,8 +13,8 @@ import javax.swing.JTextArea;
 
 public class BMITableView extends JFrame implements ActionListener{
 	
-	JTextArea displayTableInformationsBMI = new JTextArea();
-	JLabel title = new JLabel("Tabela IMC");
+	private JTextArea displayTableInformationsBMI = new JTextArea();
+	private JLabel title = new JLabel("Tabela IMC");
 	private ImageIcon regressIcon = new ImageIcon("regress.png");
 	private JButton regress = new JButton();
 	
