@@ -1,7 +1,6 @@
 package view;
 
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,9 +20,8 @@ import javax.swing.JTextField;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import control.AlimentsControl;
+import data.AlimentsData;
 import model.NutritionalTable;
-import model.VitaminsAndMinerals;
 
 public class AlimentView implements ListSelectionListener, ActionListener {
 	
@@ -299,16 +297,16 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 		
 
 		//ADD ELEMENTS---------------------------------------------------------------------------------------------------------------
-		model.addElement(new AlimentsControl().getBananaPrataCrua());
-		model.addElement(new AlimentsControl().getLeiteIntegralDeVaca());
-		model.addElement(new AlimentsControl().getLeiteDeVacaDesnatado());
-		model.addElement(new AlimentsControl().getAveia());
-		model.addElement(new AlimentsControl().getGoiaba());
-		model.addElement(new AlimentsControl().getMaca());
-		model.addElement(new AlimentsControl().getLaranja());
-		model.addElement(new AlimentsControl().getMelancia());
-		model.addElement(new AlimentsControl().getPepino());
-		model.addElement(new AlimentsControl().getBeterraba());
+		model.addElement(new AlimentsData().getBananaPrataCrua());
+		model.addElement(new AlimentsData().getLeiteIntegralDeVaca());
+		model.addElement(new AlimentsData().getLeiteDeVacaDesnatado());
+		model.addElement(new AlimentsData().getAveia());
+		model.addElement(new AlimentsData().getGoiaba());
+		model.addElement(new AlimentsData().getMaca());
+		model.addElement(new AlimentsData().getLaranja());
+		model.addElement(new AlimentsData().getMelancia());
+		model.addElement(new AlimentsData().getPepino());
+		model.addElement(new AlimentsData().getBeterraba());
 		
 		//JLIST----------------------------------------------------------------------------------------------------------------------
 		alimentsJList.addListSelectionListener(this);
