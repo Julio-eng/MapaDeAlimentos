@@ -8,7 +8,7 @@ import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import control.MineralsControl;
+import data.MineralsData;
 import model.VitaminsAndMinerals;
 
 public class MineralsView implements ListSelectionListener, ActionListener{
@@ -81,16 +81,16 @@ public class MineralsView implements ListSelectionListener, ActionListener{
 		mineralsList.setBorder(BorderFactory.createLineBorder(null));
 		
 		// Adding elements to the model ----------------------------------------------------------------------------------
-		model.addElement(new MineralsControl().getCalcium());
-		model.addElement(new MineralsControl().getIron());
-		model.addElement(new MineralsControl().getFibers());
-		model.addElement(new MineralsControl().getPhosphorus());
-		model.addElement(new MineralsControl().getIodine());
-		model.addElement(new MineralsControl().getMagnesium());
-		model.addElement(new MineralsControl().getPotassium());
-		model.addElement(new MineralsControl().getProtein());
-		model.addElement(new MineralsControl().getSodium());
-		model.addElement(new MineralsControl().getZinc());
+		model.addElement(new MineralsData().getCalcium());
+		model.addElement(new MineralsData().getIron());
+		model.addElement(new MineralsData().getFibers());
+		model.addElement(new MineralsData().getPhosphorus());
+		model.addElement(new MineralsData().getIodine());
+		model.addElement(new MineralsData().getMagnesium());
+		model.addElement(new MineralsData().getPotassium());
+		model.addElement(new MineralsData().getProtein());
+		model.addElement(new MineralsData().getSodium());
+		model.addElement(new MineralsData().getZinc());
 		
 		// Adding components to the Add panel ----------------------------------------------------------------------------
 		addPanel.add(regress3);
