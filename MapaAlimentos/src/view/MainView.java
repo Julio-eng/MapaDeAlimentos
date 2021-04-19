@@ -16,11 +16,8 @@ public class MainView extends JFrame implements ActionListener {
 	private JButton mineralsButton = new JButton();
 	private JButton diseasesButton = new JButton();
 	private JButton calculatorButton = new JButton();
-	
 	private JLabel mainMenuTitle = new JLabel("Menu Principal");
 	private JLabel programName = new JLabel("Mapa de Alimentos");
-
-	
 	
 	public MainView() {
 		
