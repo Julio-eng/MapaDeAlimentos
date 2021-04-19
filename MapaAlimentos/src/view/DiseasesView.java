@@ -8,7 +8,7 @@ import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import control.DiseaseControl;
+import data.DiseaseData;
 import model.Disease;
 
 public class DiseasesView implements ListSelectionListener, ActionListener{
@@ -77,8 +77,8 @@ public class DiseasesView implements ListSelectionListener, ActionListener{
 		diseasesList.setBorder(BorderFactory.createLineBorder(null));
 		
 		// Adding elements to the model ----------------------------------------------------------------------------------
-		model.addElement(new DiseaseControl().getLactoseIntolerant());
-		model.addElement(new DiseaseControl().getCeliac());
+		model.addElement(new DiseaseData().getLactoseIntolerant());
+		model.addElement(new DiseaseData().getCeliac());
 		
 		// Adding components to the Add panel ----------------------------------------------------------------------------
 		addPanel.add(regress3);
