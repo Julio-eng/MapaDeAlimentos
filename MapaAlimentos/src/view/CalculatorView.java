@@ -45,10 +45,6 @@ public class CalculatorView implements ActionListener {
 	private JTextArea displayInformations2 = new JTextArea();
 
 	
-
-
-	
-	
 	CalculatorView(){
 		
 		//FRAME---------------------------------------------------------------------------------------------------------------------------------
