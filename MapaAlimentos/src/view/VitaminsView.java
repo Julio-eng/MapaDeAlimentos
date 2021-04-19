@@ -8,7 +8,7 @@ import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import control.VitaminsControl;
+import data.VitaminsData;
 import model.VitaminsAndMinerals;
 
 public class VitaminsView implements ListSelectionListener, ActionListener{
@@ -81,19 +81,19 @@ public class VitaminsView implements ListSelectionListener, ActionListener{
 		vitaminsList.setBorder(BorderFactory.createLineBorder(null));
 		
 		// Adding elements to the model ----------------------------------------------------------------------------------
-		model.addElement(new VitaminsControl().getVitaminA());
-		model.addElement(new VitaminsControl().getVitaminB1());
-		model.addElement(new VitaminsControl().getVitaminB2());
-		model.addElement(new VitaminsControl().getVitaminB3());
-		model.addElement(new VitaminsControl().getVitaminB5());
-		model.addElement(new VitaminsControl().getVitaminB6());
-		model.addElement(new VitaminsControl().getVitaminB9());
-		model.addElement(new VitaminsControl().getVitaminB12());
-		model.addElement(new VitaminsControl().getVitaminC());
-		model.addElement(new VitaminsControl().getVitaminD());
-		model.addElement(new VitaminsControl().getVitaminE());
-		model.addElement(new VitaminsControl().getVitaminH());
-		model.addElement(new VitaminsControl().getVitaminK());
+		model.addElement(new VitaminsData().getVitaminA());
+		model.addElement(new VitaminsData().getVitaminB1());
+		model.addElement(new VitaminsData().getVitaminB2());
+		model.addElement(new VitaminsData().getVitaminB3());
+		model.addElement(new VitaminsData().getVitaminB5());
+		model.addElement(new VitaminsData().getVitaminB6());
+		model.addElement(new VitaminsData().getVitaminB9());
+		model.addElement(new VitaminsData().getVitaminB12());
+		model.addElement(new VitaminsData().getVitaminC());
+		model.addElement(new VitaminsData().getVitaminD());
+		model.addElement(new VitaminsData().getVitaminE());
+		model.addElement(new VitaminsData().getVitaminH());
+		model.addElement(new VitaminsData().getVitaminK());
 		
 		// Adding components to the Add panel ----------------------------------------------------------------------------
 		addPanel.add(regress3);
