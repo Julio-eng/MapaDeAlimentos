@@ -74,7 +74,7 @@ public class MineralsView implements ListSelectionListener, ActionListener{
 		
 		// Minerals List -------------------------------------------------------------------------------------------------
 		mineralsList.setBounds(30, 100, 300, 550);
-		mineralsList.setFont(new Font("Arial", Font.PLAIN,20));
+		mineralsList.setFont(new Font("Arial", Font.PLAIN, 18));
 		mineralsList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		mineralsList.addListSelectionListener(this);
 		mineralsList.setModel(model);
@@ -106,7 +106,6 @@ public class MineralsView implements ListSelectionListener, ActionListener{
 		addPanel.add(diseases2);
 		addPanel.add(symptoms2);
 		addPanel.add(save); 
-	
 		// Add panel
 		addPanel.setSize(500, 800); 
 		addPanel.setLayout(null);
@@ -127,7 +126,6 @@ public class MineralsView implements ListSelectionListener, ActionListener{
 		infoPanel.add(delete);
 		infoPanel.add(edit);
 		infoPanel.add(save2);
-		
 		// InfoPanel
 		infoPanel.setSize(500, 800);
 		infoPanel.setBackground(new Color(255,222,173));
