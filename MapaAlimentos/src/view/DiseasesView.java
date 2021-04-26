@@ -70,7 +70,7 @@ public class DiseasesView implements ListSelectionListener, ActionListener{
 		
 		// Disease List --------------------------------------------------------------------------------------------------
 		diseasesList.setBounds(30, 100, 300, 550);
-		diseasesList.setFont(new Font("Arial", Font.PLAIN,20));
+		diseasesList.setFont(new Font("Arial", Font.PLAIN, 18));
 		diseasesList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		diseasesList.addListSelectionListener(this);
 		diseasesList.setModel(model);
@@ -116,7 +116,7 @@ public class DiseasesView implements ListSelectionListener, ActionListener{
 		infoPanel.setLayout(null);
 		
 		// setting the diseases label
-		diseases.setBounds(10, 42, 200, 30);
+		diseases.setBounds(30, 50, 300, 30);
 		diseases.setText("Doencas");
 		diseases.setFont(new Font("Arial", Font.PLAIN, 30));
 		
