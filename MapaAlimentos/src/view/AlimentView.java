@@ -312,6 +312,7 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 		//JLIST----------------------------------------------------------------------------------------------------------------------
 		alimentsJList.addListSelectionListener(this);
 		alimentsJList.setBorder(BorderFactory.createLineBorder(null));
+		alimentsJList.setFont(new Font("Arial", Font.PLAIN, 18));
 	
 	}
 
