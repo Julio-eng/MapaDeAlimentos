@@ -74,7 +74,7 @@ public class VitaminsView implements ListSelectionListener, ActionListener{
 		
 		// Vitamins List -------------------------------------------------------------------------------------------------
 		vitaminsList.setBounds(30, 100, 300, 550);
-		vitaminsList.setFont(new Font("Arial", Font.PLAIN,20));
+		vitaminsList.setFont(new Font("Arial", Font.PLAIN, 18));
 		vitaminsList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		vitaminsList.addListSelectionListener(this);
 		vitaminsList.setModel(model);
@@ -135,7 +135,7 @@ public class VitaminsView implements ListSelectionListener, ActionListener{
 		infoPanel.setLayout(null);
 		
 		// setting the vitamins label
-		vitamins.setBounds(10, 42, 200, 30);
+		vitamins.setBounds(30, 50, 300, 30);
 		vitamins.setText("Vitaminas");
 		vitamins.setFont(new Font("Arial", Font.PLAIN, 30));
 		
