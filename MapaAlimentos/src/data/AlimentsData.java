@@ -2,6 +2,12 @@ package data;
 
 import model.NutritionalTable;
 
+/**
+ * Association to NutritionalTable to declare objects
+ * @author Julio and Valderson
+ *
+ */
+
 public class AlimentsData {
 
 	private NutritionalTable leiteDeVacaDesnatado = new NutritionalTable();
@@ -15,6 +21,10 @@ public class AlimentsData {
 	private NutritionalTable pepino = new NutritionalTable();
 	private NutritionalTable beterraba = new NutritionalTable();
 	
+	/**
+	 * Class constructor
+	 * Setting values to the NutritionalTable format objects
+	 */
 	
 	public AlimentsData(){
 		
@@ -301,7 +311,7 @@ public class AlimentsData {
 		
 	}
 	
-
+	
 	public NutritionalTable getLeiteDeVacaDesnatado() {
 		return leiteDeVacaDesnatado;
 	}
