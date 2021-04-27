@@ -1,27 +1,37 @@
 package model;
 
+/**
+ * Extended from BodyIndexCalculator class
+ * Related to Body Mass Index (BMI)
+ * @author Julio and Valderson
+ *
+ */
 
 public final class BMI extends BodyIndexCalculator {
 	
 	private double weight;
 	
-	//constructor method
+	/**
+	 * Constructor method Override
+	 * @param height (double that contains the entered height to the BMI calculation)
+	 * @param hip (double that contains the entered hip to the BMI calculation)
+	 */
 	public BMI(double height, double weight) {
 		this.height = height;
 		this.weight = weight;
 	}
 	
-	//constructor method
+	/**
+	 * Constructor Method Override
+	 */
 	public BMI() {
 		
 	}
 	
-	//Method created to print the results
-	public void print() {
-		System.out.printf("IMC: %.2f\n", bmiCalculation());	
-	}
-	
-	//method to calculate BMI
+	/**
+	 * Method to calculate BMI
+	 * @return return of the BMI calculation rounded up for two decimals
+	 */
 	public String bmiCalculation() {
 		
 		double operation = this.weight/(this.height*this.height);
