@@ -14,7 +14,7 @@ import javax.swing.JTextArea;
 /**
  * Display a frame with the Body Adiposity Index classification range
  * @author Julio and Valderson
- *
+ * @version 3.0 (Apr 2021)
  */
 
 public class BAITableView extends JFrame implements ActionListener {
