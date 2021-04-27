@@ -1,8 +1,13 @@
 package model;
 
+/**
+ * abstract class that contains the height attribute which is shared by BAI and BMI classes
+ * @author Julio Cesar and Valderson
+ *
+ */
+
 public abstract class BodyIndexCalculator {
 	
-	//abstract class that contains the height attribute which is shared by BAI and BMI classes
 	protected double height;
 	
 	///getters and setters

@@ -1,5 +1,11 @@
 package model;
 
+/**
+ * This class was created as a model to instance vitamins and minerals objects, as they share the same attributes 
+ * @author Julio Cesar and Valderson
+ *
+ */
+
 public class VitaminsAndMinerals {
 	
 	private String name;
@@ -8,11 +14,14 @@ public class VitaminsAndMinerals {
 	private String diseasesCaused;
 	private String deficiencySymptoms;
 	
-	//toString method override
+	/**
+	 * the to string method return just the name to display just the name when it is added to the list
+	 */
 	public String toString() {
 		return name ;
 	}
-
+	
+	//getters and setters
 	public String getName() {
 		return name;
 	}
@@ -52,7 +61,5 @@ public class VitaminsAndMinerals {
 	public void setDeficiencySymptoms(String deficiencySymptoms) {
 		this.deficiencySymptoms = deficiencySymptoms;
 	}
-	
-	///getters and setters
 	
 }

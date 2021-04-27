@@ -2,6 +2,12 @@ package data;
 
 import model.VitaminsAndMinerals;
 
+/**
+ * Class created to instance VitaminsAndMinerals objects used to fill the vitamins list 
+ * @author Julio Cesar and Valderson
+ *
+ */
+
 public class VitaminsData {
 
 	private VitaminsAndMinerals vitaminA = new VitaminsAndMinerals();
@@ -17,6 +23,11 @@ public class VitaminsData {
 	private VitaminsAndMinerals vitaminE = new VitaminsAndMinerals();
 	private VitaminsAndMinerals vitaminH = new VitaminsAndMinerals();
 	private VitaminsAndMinerals vitaminK = new VitaminsAndMinerals();
+	
+	/**
+	 * Constructor method used to set the VitaminsAndMinerals objects attributes, more specifically to set the Vitamins 
+	 * information
+	 */
 	
 	public VitaminsData() {
 		
@@ -149,7 +160,7 @@ public class VitaminsData {
 		vitaminK.setDeficiencySymptoms("Sangramento (hemorragia) sob a pele, nasal e do estomago ou do intestino");
 
 	}
-
+	//getters and setters
 	public VitaminsAndMinerals getVitaminA() {
 		return vitaminA;
 	}

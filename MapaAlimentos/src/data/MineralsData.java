@@ -2,6 +2,12 @@ package data;
 
 import model.VitaminsAndMinerals;
 
+/**
+ * Class created to instance VitaminsAndMinerals objects used to fill the minerals list 
+ * @author Julio Cesar and Valderson
+ *
+ */
+
 public class MineralsData {
 	
 	private VitaminsAndMinerals calcium = new VitaminsAndMinerals();
@@ -14,6 +20,11 @@ public class MineralsData {
 	private VitaminsAndMinerals protein = new VitaminsAndMinerals();
 	private VitaminsAndMinerals sodium = new VitaminsAndMinerals();
 	private VitaminsAndMinerals zinc = new VitaminsAndMinerals();
+	
+	/**
+	 * Constructor method used to set the VitaminsAndMinerals objects attributes, more specifically to set the Minerals 
+	 * information
+	 */
 	
 	public MineralsData(){
 		
