@@ -1,5 +1,12 @@
 package model;
 
+/**
+ * This class was created as a model to instance disease objects, the objects will contain informations about a disease related
+ * to aliments
+ * @author Julio Cesar and Valderson
+ *
+ */
+
 public class Disease {
 	
 	public String name;
@@ -7,7 +14,9 @@ public class Disease {
 	public String symptoms;
 	public String avoidAliments;
 	
-	//toString method override	
+	/**
+	 * the to string method return just the name to display just the name when it is added to the list
+	 */
 	public String toString() {
 		return name;
 	}
