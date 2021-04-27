@@ -11,6 +11,13 @@ import javax.swing.event.ListSelectionListener;
 import data.VitaminsData;
 import model.VitaminsAndMinerals;
 
+/**
+ * Used to set the minerals frame and all the other panels used to switch between the other frame's 
+ * functionalities
+ * @author Julio Cesar and Valderson 
+ *
+ */
+
 public class VitaminsView implements ListSelectionListener, ActionListener{
 	
 	private JFrame frame = new JFrame("Vitaminas");
@@ -55,6 +62,10 @@ public class VitaminsView implements ListSelectionListener, ActionListener{
 	private JButton save = new JButton("Salvar");
 	private JButton regress3 = new JButton();
 	private JButton menu3 = new JButton();
+	
+	/**
+	 * Constructor method used to set most of the components and build the frame along whit it's panels
+	 */
 	
 	public VitaminsView(){
 		// Buttons -------------------------------------------------------------------------------------------------------
@@ -166,120 +177,26 @@ public class VitaminsView implements ListSelectionListener, ActionListener{
 	@Override
 	public void valueChanged(ListSelectionEvent e) {
 		if(e.getValueIsAdjusting() && e.getSource() == vitaminsList) {
-			listPanel.setVisible(false);
-			infoPanel.setVisible(true);
-			addPanel.setVisible(false);
-			VitaminsAndMinerals object = vitaminsList.getSelectedValue();
-			// Setting the name label
-			name.setBounds(0, 0, 485, 40);
-			name.setBackground(new Color(255,222,173)); 
-			name.setOpaque(true);
-			name.setHorizontalAlignment(JLabel.CENTER);
-			name.setVerticalAlignment(JLabel.CENTER);
-			name.setText(object.getName());
-			name.setFont(new Font("Arial",Font.PLAIN, 20));
-			// Calling the method to set the titles part
-			setTitle(title1, 40, "Fontes significativas");
-			setTitle(title2, 215, "Principais funcoes");
-			setTitle(title3, 390, "Doencas causadas pela deficiencia");
-			setTitle(title4, 525, "Sintomas causados pela deficiencia");
-			// Calling the method to set the information part
-			setInformation(sources, 75, 140, object.getSignificantSources());
-			setInformation(functions, 250, 140, object.getMainFunctions());
-			setInformation(diseases, 425, 100, object.getDiseasesCaused());
-			setInformation(symptoms, 560, 140, object.getDeficiencySymptoms());
-			delete.setVisible(true);
-			edit.setVisible(true);
-			save2.setVisible(true);
+			infoPanel();
 		}
-		
 	}
 	
-	public void setTitle(JLabel title, int y, String text) {
-		title.setBounds(0, y, 485, 35);
-		title.setBackground(new Color(222,184,135)); 
-		title.setOpaque(true);
-		title.setHorizontalAlignment(JLabel.CENTER);
-		title.setVerticalAlignment(JLabel.CENTER);
-		title.setText(text);
-		title.setFont(new Font("Arial",Font.PLAIN, 20));
-	}
-	
-	public void setInformation(JTextArea information, int y, int height, String text) {
-		information.setBounds(10, y, 475, height);
-		information.setBackground(new Color(255,222,173)); 
-		information.setText(text);
-		information.setFont(new Font("Arial",Font.PLAIN, 20));
-		information.setEditable(false);
-		information.setLineWrap(true);
-		information.setWrapStyleWord(true);
-	}
-
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == add) {
-			listPanel.setVisible(false);
-			infoPanel.setVisible(false);
-			addPanel.setVisible(true);
-			// Calling the method to set Labels
-			setLabels(name2, 0, "Nome");
-			setLabels(sources2, 75, "Fontes significativas");
-			setLabels(functions2, 230, "Principais funcoes");
-			setLabels(diseases2, 385, "Doencas causadas pela deficiencia");
-			setLabels(symptoms2, 540, "Sintomas causados pela deficiencia");
-			// Calling the method to set TextFields
-			setTextArea(addName, 35, 40);
-			setTextArea(addSources, 110, 120);
-			setTextArea(addFunctions, 265	, 120);
-			setTextArea(addDiseases, 420, 120);
-			setTextArea(addSymptoms, 575, 120);
-			save.setVisible(true);
+			addButton();
 		}
-		
 		if(e.getSource() == save) {
-			if(addName.getText().isBlank()) {
-				JOptionPane.showMessageDialog(null, "Digite pelo menos o nome para que uma nova vitamina seja "
-						+ "adicinada!", null, JOptionPane.INFORMATION_MESSAGE);
-			} else {
-				addPanel.setVisible(false);
-				listPanel.setVisible(true);
-				infoPanel.setVisible(false);
-				VitaminsAndMinerals vitamins = new VitaminsAndMinerals();
-				vitamins.setName(addName.getText());
-				vitamins.setSignificantSources(addSources.getText());
-				vitamins.setMainFunctions(addFunctions.getText());
-				vitamins.setDiseasesCaused(addDiseases.getText());
-				vitamins.setDeficiencySymptoms(addSymptoms.getText());
-				model.addElement(vitamins);
-				JOptionPane.showMessageDialog(null, "Vitamina adicionada!", null, JOptionPane.INFORMATION_MESSAGE);
-			}
+			saveButton();
 		}
-		
 		if(e.getSource() == delete) {
-			listPanel.setVisible(true);
-			infoPanel.setVisible(false);
-			addPanel.setVisible(false);
-			model.removeElement(vitaminsList.getSelectedValue());
-			JOptionPane.showMessageDialog(null, "Vitamina deletada!", null, JOptionPane.INFORMATION_MESSAGE);
+			deleteButton();
 		}
-		
 		if(e.getSource() == edit) {
-			sources.setEditable(true);
-			diseases.setEditable(true);
-			functions.setEditable(true);
-			symptoms.setEditable(true);
+			editButton();
 		}
-		
 		if(e.getSource() == save2) {
-			addPanel.setVisible(false);
-			listPanel.setVisible(true);
-			infoPanel.setVisible(false);
-			VitaminsAndMinerals object = vitaminsList.getSelectedValue();
-			object.setSignificantSources(sources.getText());
-			object.setDiseasesCaused(diseases.getText());
-			object.setMainFunctions(functions.getText());
-			object.setDeficiencySymptoms(symptoms.getText());
-			JOptionPane.showMessageDialog(null, "Suas informacoes foram salvas!", null, JOptionPane.INFORMATION_MESSAGE);
+			save2Button();
 		}
 		
 		if(e.getSource() == regress) {
@@ -305,16 +222,179 @@ public class VitaminsView implements ListSelectionListener, ActionListener{
 		}
 	}
 	
-	public void setLabels(JLabel name, int y, String label) {
+	/**
+	 * Used to create and display the information panel of a object, more specifically a vitamins object
+	 */
+	public void infoPanel() {
+		listPanel.setVisible(false);
+		infoPanel.setVisible(true);
+		addPanel.setVisible(false);
+		VitaminsAndMinerals object = vitaminsList.getSelectedValue();
+		// Setting the name label
+		name.setBounds(0, 0, 485, 40);
+		name.setBackground(new Color(255,222,173)); 
+		name.setOpaque(true);
+		name.setHorizontalAlignment(JLabel.CENTER);
+		name.setVerticalAlignment(JLabel.CENTER);
+		name.setText(object.getName());
+		name.setFont(new Font("Arial",Font.PLAIN, 20));
+		// Calling the method to set the titles part
+		setTitle(title1, 40, "Fontes significativas");
+		setTitle(title2, 215, "Principais funcoes");
+		setTitle(title3, 390, "Doencas causadas pela deficiencia");
+		setTitle(title4, 525, "Sintomas causados pela deficiencia");
+		// Calling the method to set the information part
+		setInformation(sources, 75, 140, object.getSignificantSources());
+		setInformation(functions, 250, 140, object.getMainFunctions());
+		setInformation(diseases, 425, 100, object.getDiseasesCaused());
+		setInformation(symptoms, 560, 140, object.getDeficiencySymptoms());
+		delete.setVisible(true);
+		edit.setVisible(true);
+		save2.setVisible(true);
+	}
+	
+	/**
+	 * Used to create a panel containing areas where you can write something, more specifically write
+	 * informations about a vitamin
+	 * 
+	 */
+	
+	public void addButton() {
+		listPanel.setVisible(false);
+		infoPanel.setVisible(false);
+		addPanel.setVisible(true);
+		// Calling the method to set Labels
+		setLabels(name2, 0, "Nome");
+		setLabels(sources2, 75, "Fontes significativas");
+		setLabels(functions2, 230, "Principais funcoes");
+		setLabels(diseases2, 385, "Doencas causadas pela deficiencia");
+		setLabels(symptoms2, 540, "Sintomas causados pela deficiencia");
+		// Calling the method to set TextFields
+		setTextArea(addName, 35, 40);
+		setTextArea(addSources, 110, 120);
+		setTextArea(addFunctions, 265	, 120);
+		setTextArea(addDiseases, 420, 120);
+		setTextArea(addSymptoms, 575, 120);
+		save.setVisible(true);
+	}
+	
+	/**
+	 * Save the information of the new object instanced on the addButton method
+	 * 
+	 */
+	public void saveButton() {
+		if(addName.getText().isBlank()) {
+			JOptionPane.showMessageDialog(null, "Digite pelo menos o nome para que uma nova vitamina seja "
+					+ "adicinada!", null, JOptionPane.INFORMATION_MESSAGE);
+		} else {
+			addPanel.setVisible(false);
+			listPanel.setVisible(true);
+			infoPanel.setVisible(false);
+			VitaminsAndMinerals vitamins = new VitaminsAndMinerals();
+			vitamins.setName(addName.getText());
+			vitamins.setSignificantSources(addSources.getText());
+			vitamins.setMainFunctions(addFunctions.getText());
+			vitamins.setDiseasesCaused(addDiseases.getText());
+			vitamins.setDeficiencySymptoms(addSymptoms.getText());
+			model.addElement(vitamins);
+			JOptionPane.showMessageDialog(null, "Vitamina adicionada!", null, JOptionPane.INFORMATION_MESSAGE);
+		}
+	}
+
+	/**
+	 * Delete a object of the list
+	 * 
+	 */
+	public void deleteButton() {
+		listPanel.setVisible(true);
+		infoPanel.setVisible(false);
+		addPanel.setVisible(false);
+		model.removeElement(vitaminsList.getSelectedValue());
+		JOptionPane.showMessageDialog(null, "Vitamina deletada!", null, JOptionPane.INFORMATION_MESSAGE);
+	}
+
+	/**
+	 * Turns the JTextAreas's editable so you can edit the information of an object 
+	 * 
+	 */
+	public void editButton() {
+		sources.setEditable(true);
+		diseases.setEditable(true);
+		functions.setEditable(true);
+		symptoms.setEditable(true);
+	}
+	
+	/**
+	 * Save the changes you made when you clicked the edit button
+	 * 
+	 */
+	public void save2Button() {
+		addPanel.setVisible(false);
+		listPanel.setVisible(true);
+		infoPanel.setVisible(false);
+		VitaminsAndMinerals object = vitaminsList.getSelectedValue();
+		object.setSignificantSources(sources.getText());
+		object.setDiseasesCaused(diseases.getText());
+		object.setMainFunctions(functions.getText());
+		object.setDeficiencySymptoms(symptoms.getText());
+		JOptionPane.showMessageDialog(null, "Suas informacoes foram salvas!", null, JOptionPane.INFORMATION_MESSAGE);
+	}
+	
+	/**
+	 * standardizes the creation of most labels used to display information visible in the panels
+	 * @param title name of the label that will be set 
+	 * @param y its position on the y axis
+	 * @param text the text that the label will display
+	 */
+	public void setTitle(JLabel title, int y, String text) {
+		title.setBounds(0, y, 485, 35);
+		title.setBackground(new Color(222,184,135)); 
+		title.setOpaque(true);
+		title.setHorizontalAlignment(JLabel.CENTER);
+		title.setVerticalAlignment(JLabel.CENTER);
+		title.setText(text);
+		title.setFont(new Font("Arial",Font.PLAIN, 20));
+	}
+	
+	/**
+	 * standardizes the creation of most JTextAreas used to display the information visible in the panels
+	 * @param information name of the text area that will be set
+	 * @param y its position on the y axis
+	 * @param height the height of the text area
+	 * @param text the text that the text area will display
+	 */
+	public void setInformation(JTextArea information, int y, int height, String text) {
+		information.setBounds(10, y, 475, height);
+		information.setBackground(new Color(255,222,173)); 
+		information.setText(text);
+		information.setFont(new Font("Arial",Font.PLAIN, 20));
+		information.setEditable(false);
+		information.setLineWrap(true);
+		information.setWrapStyleWord(true);
+	}
+	
+	/**
+	 * standardizes the creation of most labels used to create new objects visible in the panels
+	 * @param name name of the label that will be set
+	 * @param y its position on the y axis
+	 * @param text the text that the label will display
+	 */
+	public void setLabels(JLabel name, int y, String text) {
 		name.setBounds(0, y, 485, 35);
 		name.setBackground(new Color(240, 192, 134)); 
 		name.setOpaque(true);
 		name.setHorizontalAlignment(JLabel.CENTER);
 		name.setVerticalAlignment(JLabel.CENTER);
-		name.setText(label);
+		name.setText(text);
 		name.setFont(new Font("Arial",Font.PLAIN, 20));
 	}
 	
+	/**
+	 * standardizes the creation of most JTextAreas used to create a new object visible in the panels
+	 * @param name name of the text area that will be set
+	 * @param y its position on the y axis
+	 * @param height the height of the text area
+	 */
 	public void setTextArea(JTextArea name, int y, int height) {
 		name.setBounds(10, y, 465, height);
 		name.setFont(new Font("Arial",Font.PLAIN, 20));
@@ -322,6 +402,12 @@ public class VitaminsView implements ListSelectionListener, ActionListener{
 		name.setWrapStyleWord(true);
 	}
 	
+	/**
+	 * standardizes the creation of most buttons used in the panels
+	 * @param name name of the button that will be set
+	 * @param x its position on the x axis
+	 * @param y its position on the y axis
+	 */
 	public void setButtons(JButton name, int x, int y) {
 		name.setBounds(x, y, 100, 50);
 		name.setFocusable(false);
@@ -329,6 +415,12 @@ public class VitaminsView implements ListSelectionListener, ActionListener{
 		name.setVisible(false);
 	}
 	
+	/**
+	 * standardizes the mini buttons(return and menu) creation 
+	 * @param name name of the mini button that will be set
+	 * @param icon the image the buttons will receive
+	 * @param x its position on the x axis
+	 */
 	public void setMiniButtons(JButton name, ImageIcon icon, int x) {
 		name.setBounds(x, 0, 32, 32);
 		name.setFocusable(false);
