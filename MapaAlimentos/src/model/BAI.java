@@ -4,7 +4,7 @@ package model;
  * Extended from BodyIndexCalculator class
  * Related to Body Adiposity Index (BAI)
  * @author Julio and Valderson
- *
+ * @version 3.0 (Apr 2021)
  */
 
 public final class BAI extends BodyIndexCalculator {
