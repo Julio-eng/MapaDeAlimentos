@@ -3,7 +3,7 @@ package model;
 /**
  * abstract class that contains the height attribute which is shared by BAI and BMI classes
  * @author Julio Cesar and Valderson
- *
+ * @version 3.0 (Apr 2021)
  */
 
 public abstract class BodyIndexCalculator {
