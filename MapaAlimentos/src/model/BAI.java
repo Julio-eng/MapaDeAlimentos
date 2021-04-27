@@ -1,32 +1,39 @@
 package model;
 
+/**
+ * Extended from BodyIndexCalculator class
+ * Related to Body Adiposity Index (BAI)
+ * @author Julio and Valderson
+ *
+ */
+
 public final class BAI extends BodyIndexCalculator {
 	
 	private double hip;
 	
-	//constructor method 
+	/**
+	 * Constructor method Override
+	 * @param height (double that contains the entered height to the BAI calculation)
+	 * @param hip (double that contains the entered hip to the BAI calculation)
+	 */
 	public BAI(double height, double hip) {
 		this.height = height;
 		this.hip = hip;
 	}
 	
-	//constructor method
+	/**
+	 * Constructor Method Override
+	 */
 	public BAI() {
 		
 	}
 	
-	//Method created to print the results
-	public void print() {
-		System.out.printf("IAC: %.2f\n", baiCalculation());	
-	}
-	
-	//method to calculate BAI
+	/**
+	 * Method to calculate BAI
+	 * @return return of the BAI calculation rounded up for two decimals
+	 */
 	public String baiCalculation() {
-		double operation = this.hip/(this.height*this.height);
-		
-		operation = Math.round(operation*100)/100.0;
-		
-		return String.valueOf(operation);
+		return String.valueOf(Math.round((this.hip/(this.height*this.height))*100)/100.0);
 
 	}
 	
