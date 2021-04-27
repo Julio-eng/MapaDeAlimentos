@@ -11,12 +11,24 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
+/**
+ * Display a frame with the Body Mass Index classification range
+ * @author Julio and Valderson
+ *
+ */
+
 public class BMITableView extends JFrame implements ActionListener{
 	
 	private JTextArea displayTableInformationsBMI = new JTextArea();
 	private JLabel title = new JLabel("Tabela IMC");
 	private ImageIcon regressIcon = new ImageIcon("regress.png");
 	private JButton regress = new JButton();
+	
+	/**
+	 * Class constructor
+	 * Frame with textArea, label, imageIcon, button
+	 * Setting characteristics and gadgets to a frame
+	 */
 	
 	public BMITableView() {
 		
