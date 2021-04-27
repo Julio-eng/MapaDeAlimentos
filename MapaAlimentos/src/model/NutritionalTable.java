@@ -1,5 +1,12 @@
 package model;
 
+/**
+ * Creating an object to save informations of the aliment characteristics
+ * Name, Energy, Macronutrients, Minerals and Vitamins;
+ * @author Julio and Valderson
+ *
+ */
+
 public class NutritionalTable {
 
 	private String name;
@@ -202,6 +209,9 @@ public class NutritionalTable {
 		this.name = name;
 	}
 	
+	/**
+	 * Overrided toString to return only the name
+	 */
 	
 	public String toString() {
 		return name;
