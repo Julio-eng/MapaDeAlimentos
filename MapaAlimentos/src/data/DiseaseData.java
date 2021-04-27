@@ -2,10 +2,20 @@ package data;
 
 import model.Disease;
 
+/**
+ * Class created to instance Disease objects used to fill the diseases list 
+ * @author Julio Cesar and Valderson
+ *
+ */
+
 public class DiseaseData {
 	
 	private Disease lactoseIntolerant = new Disease();
 	private Disease celiac = new Disease();
+	
+	/**
+	 * Constructor method used to set the disease objects attributes 
+	 */
 	
 	public DiseaseData () {
 		
