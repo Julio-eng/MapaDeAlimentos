@@ -3,7 +3,7 @@ package model;
 /**
  * This class was created as a model to instance vitamins and minerals objects, as they share the same attributes 
  * @author Julio Cesar and Valderson
- *
+ * @version 3.0 (Apr 2021)
  */
 
 public class VitaminsAndMinerals {
