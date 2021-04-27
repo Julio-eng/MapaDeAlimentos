@@ -9,6 +9,12 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+/**
+ * Used to set the menu frame with the options(buttons) for what functionality do you want to use
+ * @author Julio Cesar and Valderson 
+ *
+ */
+
 public class MainView extends JFrame implements ActionListener {
 	
 	private JButton alimentButton = new JButton();
@@ -19,9 +25,12 @@ public class MainView extends JFrame implements ActionListener {
 	private JLabel mainMenuTitle = new JLabel("Menu Principal");
 	private JLabel programName = new JLabel("Mapa de Alimentos");
 	
+	/**
+	 * Constructor method used to set most of the components and build the frame
+	 */
+	
 	public MainView() {
 		
-		//working with fundamental GUI things
 		this.setVisible(true);
 		this.setSize(500, 800); 
 		this.setTitle("Mapa de Alimentos"); 	
@@ -60,7 +69,6 @@ public class MainView extends JFrame implements ActionListener {
 		calculatorButton.setText("Calculadora");
 		calculatorButton.setFocusable(false);
 		
-		
 		this.add(programName);
 		programName.setFont(new Font("Arial", Font.BOLD, 33));
 		programName.setBounds(100, 50, 300, 33);
@@ -68,8 +76,6 @@ public class MainView extends JFrame implements ActionListener {
 		this.add(mainMenuTitle);
 		mainMenuTitle.setFont(new Font("Arial", Font.PLAIN, 27));
 		mainMenuTitle.setBounds(160, 130, 300, 30);
-		
-
 		
 	}
 
@@ -102,6 +108,4 @@ public class MainView extends JFrame implements ActionListener {
 			 this.dispose(); 
 		}
 	}
-	
-
 }
