@@ -23,6 +23,14 @@ import javax.swing.event.ListSelectionListener;
 import data.AlimentsData;
 import model.NutritionalTable;
 
+/**
+ * CRUD of the NutritionalTable type aliments
+ * Display of the graphic interface related to the list of aliments
+ * Frame, panels, labels, imageIcons, buttons, textArea, textField
+ * @author Julio and Valderson
+ *
+ */
+
 public class AlimentView implements ListSelectionListener, ActionListener {
 	
 	//--------------------------IMAGES----------------------------------------------------------------------------------------------------------
@@ -118,6 +126,10 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 	private JTextField vitaminHSubmit2 = new JTextField();
 	private JTextField vitaminKSubmit2 = new JTextField();
 
+	/**
+	 * Overrided Class Constructor
+	 * Setting informations to the frame, panels, labels, imageIcons, buttons, textArea, textField
+	 */
 	
 	AlimentView(){
 		
@@ -268,6 +280,33 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 		nutritionalTableInformations.setWrapStyleWord(true);
 		nutritionalTableInformations.setFont(new Font("Arial", Font.PLAIN, 20));
 		nutritionalTableInformations.setBackground(new Color(240, 192, 134));
+		nutritionalTableInformations.setText("  Nome: "
+				+ "\n  Calorias: "
+				+ "\n  Proteinas: "
+				+ "\n  Carboidratos: "
+				+ "\n  Lipidios: "
+				+ "\n  Calcio: "
+				+ "\n  Ferro: "
+				+ "\n  Fibras: "
+				+ "\n  Fosforo: "
+				+ "\n  Iodo: "
+				+ "\n  Magnesio: "
+				+ "\n  Potassio: "
+				+ "\n  Sodio: "
+				+ "\n  Zinco: "
+				+ "\n  Vitamina A: "
+				+ "\n  Vitamina B1: "
+				+ "\n  Vitamina B2: "
+				+ "\n  Vitamina B3: "
+				+ "\n  Vitamina B5: "
+				+ "\n  Vitamina B6: "
+				+ "\n  Vitamina B9: "
+				+ "\n  Vitamina B12: "
+				+ "\n  Vitamina C: "
+				+ "\n  Vitamina D: "
+				+ "\n  Vitamina E: "
+				+ "\n  Vitamina H: "
+				+ "\n  Vitamina K: ");	
 		
 		//JTEXTAREA OF ADD BUTTON---------------------------------------------------------------------------------------------------
 		nutritionalTableAdd.setBounds(32, 90, 150, 680);
@@ -276,6 +315,33 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 		nutritionalTableAdd.setWrapStyleWord(true);
 		nutritionalTableAdd.setFont(new Font("Arial", Font.PLAIN, 20));
 		nutritionalTableAdd.setBackground(new Color(240, 192, 134));
+		nutritionalTableAdd.setText("  Nome: "
+				+ "\n  Calorias: " 
+		+ "\n  Proteinas: " 
+		+ "\n  Carboidratos: " 
+		+ "\n  Lipidios: " 
+		+ "\n  Calcio: "
+		+ "\n  Ferro: " 
+		+ "\n  Fibras: "
+		+ "\n  Fosforo: " 
+		+ "\n  Iodo: " 
+		+ "\n  Magnesio: " 
+		+ "\n  Potassio: "
+		+ "\n  Sodio: " 
+		+ "\n  Zinco: "
+		+ "\n  Vitamina A: " 
+		+ "\n  Vitamina B1: " 
+		+ "\n  Vitamina B2: "
+		+ "\n  Vitamina B3: "
+		+ "\n  Vitamina B5: "
+		+ "\n  Vitamina B6: " 
+		+ "\n  Vitamina B9: " 
+		+ "\n  Vitamina B12: "
+		+ "\n  Vitamina C: " 
+		+ "\n  Vitamina D: " 
+		+ "\n  Vitamina E: "
+		+ "\n  Vitamina H: " 
+		+ "\n  Vitamina K:");	
 		
 		//BUTTONS------------------------------------------------------------------------------------------------------------------
 		standardizeButtons(add, "Adicionar", 30, 670, 100, 50);
@@ -323,67 +389,7 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 		
 			if(e.getValueIsAdjusting() && e.getSource() == alimentsJList ) {
 		
-				listOfAlimentsPanel.setVisible(false);
-				informationViewPanel.setVisible(true);		
-				addPanel.setVisible(false);
-				
-				nutritionalTableInformations.setText("  Name: "
-						+ "\n  Calorias: "
-						+ "\n  Proteinas: "
-						+ "\n  Carboidratos: "
-						+ "\n  Lipidios: "
-						+ "\n  Calcio: "
-						+ "\n  Ferro: "
-						+ "\n  Fibras: "
-						+ "\n  Fosforo: "
-						+ "\n  Iodo: "
-						+ "\n  Magnesio: "
-						+ "\n  Potassio: "
-						+ "\n  Sodio: "
-						+ "\n  Zinco: "
-						+ "\n  Vitamina A: "
-						+ "\n  Vitamina B1: "
-						+ "\n  Vitamina B2: "
-						+ "\n  Vitamina B3: "
-						+ "\n  Vitamina B5: "
-						+ "\n  Vitamina B6: "
-						+ "\n  Vitamina B9: "
-						+ "\n  Vitamina B12: "
-						+ "\n  Vitamina C: "
-						+ "\n  Vitamina D: "
-						+ "\n  Vitamina E: "
-						+ "\n  Vitamina H: "
-						+ "\n  Vitamina K: ");	
-			  
-				int a = 1;
-				
-				displayObjectJTextFieldInformation(nameSubmit2, object.getName(),  83, 170, 20);
-				displayObjectJTextFieldInformation(calorieSubmit2, object.getCalorie(),  1 + 83 + 23*a, 170, 20); a++;
-			  	displayObjectJTextFieldInformation(proteinsSubmit2, object.getProtein(),  2 + 83 + 23*a, 170, 20); a++;
-				displayObjectJTextFieldInformation(carbohydrateSubmit2, object.getCarbohydrate(),  3 + 83 + 23*a, 170, 20); a++;
-				displayObjectJTextFieldInformation(lipidsSubmit2, object.getLipids(),  4 + 83 + 23*a, 170, 20); a++;
-				displayObjectJTextFieldInformation(calciumSubmit2, object.getCalcium(),  5 + 83 + 23*a, 170, 20); a++;
-				displayObjectJTextFieldInformation(ironSubmit2, object.getIron(),  5 + 83 + 23*a, 170, 20); a++;
-				displayObjectJTextFieldInformation(fiberSubmit2, object.getFiber(),  5 + 83 + 23*a, 170, 20); a++;
-			    displayObjectJTextFieldInformation(phosphorSubmit2, object.getPhosphor(),  6 + 83 + 23*a, 170, 20); a++;
-		   		displayObjectJTextFieldInformation(iodineSubmit2, object.getIodine(),  8 + 83 + 23*a, 170, 20); a++;
-		 		displayObjectJTextFieldInformation(magnesiumSubmit2, object.getMagnesium(),  9 +  83 + 23*a, 170, 20); a++;
-       			displayObjectJTextFieldInformation(potassiumSubmit2, object.getPotassium(),  12 +  83 + 23*a, 170, 20); a++;
-				displayObjectJTextFieldInformation(sodiumSubmit2, object.getSodium(),  13 + 83 + 23*a, 170, 20); a++;
-				displayObjectJTextFieldInformation(zincSubmit2, object.getZinc(),  13 + 83 + 23*a, 170, 20); a++;
-				displayObjectJTextFieldInformation(vitaminASubmit2, object.getVitaminA(),  13 + 83 + 23*a, 170, 20); a++;
-			    displayObjectJTextFieldInformation(vitaminB1Submit2, object.getVitaminB1(),  14 + 83 + 23*a, 170, 20); a++;
-			    displayObjectJTextFieldInformation(vitaminB2Submit2, object.getVitaminB2(),  16 + 83 + 23*a, 170, 20); a++;
-				displayObjectJTextFieldInformation(vitaminB3Submit2, object.getVitaminB3(),  16 + 83 + 23*a, 170, 20); a++;
-				displayObjectJTextFieldInformation(vitaminB5Submit2, object.getVitaminB5(),  17 + 83 + 23*a, 170, 20); a++;
-				displayObjectJTextFieldInformation(vitaminB6Submit2, object.getVitaminB6(),  19 + 83 + 23*a, 170, 20); a++;
-				displayObjectJTextFieldInformation(vitaminB9Submit2, object.getVitaminB9(),  20 + 83 + 23*a, 170, 20); a++;
-				displayObjectJTextFieldInformation(vitaminB12Submit2, object.getVitaminB12(),  20 + 83 + 23*a, 170, 20); a++;
-				displayObjectJTextFieldInformation(vitaminCSubmit2, object.getVitaminC(),  22 + 83 + 23*a, 170, 20); a++;
-				displayObjectJTextFieldInformation(vitaminDSubmit2, object.getVitaminD(),  23 + 83 + 23*a, 170, 20); a++;
-				displayObjectJTextFieldInformation(vitaminESubmit2, object.getVitaminE(),  23 + 83 + 23*a, 170, 20); a++;
-				displayObjectJTextFieldInformation(vitaminHSubmit2, object.getVitaminH(),  23 + 83 + 23*a, 170, 20); a++;
-				displayObjectJTextFieldInformation(vitaminKSubmit2, object.getVitaminK(),  25 + 83 + 23*a, 170, 20); a++;		
+				addTheFetchedInformationToTheJTextField(object);
 				
 		}
 		
@@ -395,179 +401,41 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 		
 		if(e.getSource() == add ) {
 			
-			listOfAlimentsPanel.setVisible(false);
-			informationViewPanel.setVisible(false);
-			addPanel.setVisible(true);
-			
-			
-			nutritionalTableAdd.setText("  Nome: "
-					+ "\n  Calorias: " 
-			+ "\n  Proteinas: " 
-			+ "\n  Carboidratos: " 
-			+ "\n  Lipidios: " 
-			+ "\n  Calcio: "
-			+ "\n  Ferro: " 
-			+ "\n  Fibras: "
-			+ "\n  Fosforo: " 
-			+ "\n  Iodo: " 
-			+ "\n  Magnesio: " 
-			+ "\n  Potassio: "
-			+ "\n  Sodio: " 
-			+ "\n  Zinco: "
-			+ "\n  Vitamina A: " 
-			+ "\n  Vitamina B1: " 
-			+ "\n  Vitamina B2: "
-			+ "\n  Vitamina B3: "
-			+ "\n  Vitamina B5: "
-			+ "\n  Vitamina B6: " 
-			+ "\n  Vitamina B9: " 
-			+ "\n  Vitamina B12: "
-			+ "\n  Vitamina C: " 
-			+ "\n  Vitamina D: " 
-			+ "\n  Vitamina E: "
-			+ "\n  Vitamina H: " 
-			+ "\n  Vitamina K:");	
-			
+			addButtonSetInformations();
 
-			runSetJTextFieldValues(93);
-			
 		}
 		
 		
 		if(e.getSource() == save ) {
 			
-		addPanel.setVisible(false);
-		informationViewPanel.setVisible(false);
-		listOfAlimentsPanel.setVisible(true);
-		
-		NutritionalTable addButtonObject = new NutritionalTable();
-		
-		addButtonObject.setName(nameSubmit.getText());
-		addButtonObject.setCalorie(calorieSubmit.getText());
-		addButtonObject.setProtein(proteinsSubmit.getText());
-		addButtonObject.setCarbohydrate(carbohydrateSubmit.getText());
-		addButtonObject.setLipids(lipidsSubmit.getText());
-		addButtonObject.setCalcium(calciumSubmit.getText());
-		addButtonObject.setIron(ironSubmit.getText());
-		addButtonObject.setFiber(fiberSubmit.getText());
-		addButtonObject.setPhosphor(phosphorSubmit.getText());
-		addButtonObject.setIodine(iodineSubmit.getText());
-		addButtonObject.setMagnesium(magnesiumSubmit.getText());
-		addButtonObject.setPotassium(potassiumSubmit.getText());
-		addButtonObject.setSodium(sodiumSubmit.getText());
-		addButtonObject.setZinc(zincSubmit.getText());
-		addButtonObject.setVitaminA(vitaminASubmit.getText());
-		addButtonObject.setVitaminB1(vitaminB1Submit.getText());
-		addButtonObject.setVitaminB2(vitaminB2Submit.getText());
-		addButtonObject.setVitaminB3(vitaminB3Submit.getText());
-		addButtonObject.setVitaminB5(vitaminB5Submit.getText());
-		addButtonObject.setVitaminB6(vitaminB6Submit.getText());
-		addButtonObject.setVitaminB9(vitaminB9Submit.getText());
-		addButtonObject.setVitaminB12(vitaminB12Submit.getText());
-		addButtonObject.setVitaminC(vitaminCSubmit.getText());
-		addButtonObject.setVitaminD(vitaminDSubmit.getText());
-		addButtonObject.setVitaminE(vitaminESubmit.getText());
-		addButtonObject.setVitaminH(vitaminHSubmit.getText());
-		addButtonObject.setVitaminK(vitaminKSubmit.getText());
-		
-		model.addElement(addButtonObject);
-		JOptionPane.showMessageDialog(null, "Alimento adicionado!", null, JOptionPane.INFORMATION_MESSAGE);
-		
+			saveButtonSetInformation();		
 			
 		}
 		
 		if(e.getSource() == delete ) {
 
-		addPanel.setVisible(false);
-		informationViewPanel.setVisible(false);
-		listOfAlimentsPanel.setVisible(true);
-		
-		model.removeElement(alimentsJList.getSelectedValue());			
+			deleteButtonSetInformations();
 			
 		}
 		
 		if(e.getSource() == edit) {
 			
-			addPanel.setVisible(false);
-			informationViewPanel.setVisible(true);
-			listOfAlimentsPanel.setVisible(false);
-
-			nameSubmit2.setEditable(false);
-			calorieSubmit2.setEditable(true);
-			proteinsSubmit2.setEditable(true);
-			carbohydrateSubmit2.setEditable(true);
-			lipidsSubmit2.setEditable(true);
-			calciumSubmit2.setEditable(true);
-			ironSubmit2.setEditable(true);
-			fiberSubmit2.setEditable(true);
-			phosphorSubmit2.setEditable(true);
-			iodineSubmit2.setEditable(true);
-			magnesiumSubmit2.setEditable(true);
-			potassiumSubmit2.setEditable(true);
-			sodiumSubmit2.setEditable(true);
-			zincSubmit2.setEditable(true);
-			vitaminASubmit2.setEditable(true);
-			vitaminB1Submit2.setEditable(true);
-			vitaminB2Submit2.setEditable(true);
-			vitaminB3Submit2.setEditable(true);
-			vitaminB5Submit2.setEditable(true);
-			vitaminB6Submit2.setEditable(true);
-			vitaminB9Submit2.setEditable(true);
-			vitaminB12Submit2.setEditable(true);
-			vitaminCSubmit2.setEditable(true);
-			vitaminDSubmit2.setEditable(true);
-			vitaminESubmit2.setEditable(true);
-			vitaminHSubmit2.setEditable(true);
-			vitaminKSubmit2.setEditable(true);
+			editButtonSetInformations();
+			
 			
 			
 		}
 		
 		if(e.getSource() == save2) {
 			
-			addPanel.setVisible(false);
-			informationViewPanel.setVisible(false);
-			listOfAlimentsPanel.setVisible(true);		
-			
-			NutritionalTable object = alimentsJList.getSelectedValue();	
-			
-			object.setCalorie(calorieSubmit2.getText());
-			object.setProtein(proteinsSubmit2.getText());
-			object.setCarbohydrate(carbohydrateSubmit2.getText());
-			object.setLipids(lipidsSubmit2.getText());
-			object.setCalcium(calciumSubmit2.getText());
-			object.setIron(ironSubmit2.getText());
-			object.setFiber(fiberSubmit2.getText());
-			object.setPhosphor(phosphorSubmit2.getText());
-			object.setIodine(iodineSubmit2.getText());
-			object.setMagnesium(magnesiumSubmit2.getText());
-			object.setPotassium(potassiumSubmit2.getText());
-			object.setSodium(sodiumSubmit2.getText());
-			object.setZinc(zincSubmit2.getText());
-			object.setVitaminA(vitaminASubmit2.getText());
-			object.setVitaminB1(vitaminB1Submit2.getText());
-			object.setVitaminB2(vitaminB2Submit2.getText());
-			object.setVitaminB3(vitaminB3Submit2.getText());
-			object.setVitaminB5(vitaminB5Submit2.getText());
-			object.setVitaminB6(vitaminB6Submit2.getText());
-			object.setVitaminB9(vitaminB9Submit2.getText());
-			object.setVitaminB12(vitaminB12Submit2.getText());
-			object.setVitaminC(vitaminCSubmit2.getText());
-			object.setVitaminD(vitaminDSubmit2.getText());
-			object.setVitaminE(vitaminESubmit2.getText());
-			object.setVitaminH(vitaminHSubmit2.getText());
-			object.setVitaminK(vitaminKSubmit2.getText());
-			
-			JOptionPane.showMessageDialog(null, "Suas informacoes foram salvas!", null, JOptionPane.INFORMATION_MESSAGE);
-			
+			save2ButtonSetInformation();
 			
 		}
 		
 		if(e.getSource() == regress) {
 			
-			addPanel.setVisible(false);
-			informationViewPanel.setVisible(false);
-			listOfAlimentsPanel.setVisible(false);
+			setVisibility(false, false, false);
+			
 			alimentFrame.dispose();
 			
 			new MainView();			
@@ -575,10 +443,8 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 		}
 		
 		if(e.getSource() == menu) {
-			
-			addPanel.setVisible(false);
-			informationViewPanel.setVisible(false);
-			listOfAlimentsPanel.setVisible(false);
+
+			setVisibility(false, false, false);
 			alimentFrame.dispose();
 			
 			new MainView();			
@@ -587,40 +453,28 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 		
 		if(e.getSource() == regress2) {
 			
-			addPanel.setVisible(false);
-			informationViewPanel.setVisible(false);
-			listOfAlimentsPanel.setVisible(true);
+			setVisibility(false, false, true);
 			
 		}
 		
 		if(e.getSource() == menu2) {
-			
-			addPanel.setVisible(false);
-			informationViewPanel.setVisible(false);
-			listOfAlimentsPanel.setVisible(false);
+		
+			setVisibility(false, false, false);	
 			alimentFrame.dispose();
-			
 			new MainView();			
 			
 		}
 		
 		if(e.getSource() == regress3) {
 			
-			addPanel.setVisible(false);
-			informationViewPanel.setVisible(false);
-			listOfAlimentsPanel.setVisible(true);
-			
-		
-			
+			setVisibility(false, false, true);
+
 		}
 		
 		if(e.getSource() == menu3) {
 			
-			addPanel.setVisible(false);
-			informationViewPanel.setVisible(false);
-			listOfAlimentsPanel.setVisible(false);
+			setVisibility(false, false, false);
 			alimentFrame.dispose();
-			
 			new MainView();			
 			
 		}
@@ -628,6 +482,12 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 		
 	}
 	
+	/**
+	 * Set the addPanel JTextFields characteristics
+	 * Set JTextFields similar to each other
+	 * @param variable to contain the recived JTextField variable
+	 * @param variable to set the locations of the JTextField on the y coordinated
+	 */
 	public void setJTextFieldValues(JTextField variable, int y) {
 		
 		variable.setVisible(true);
@@ -636,6 +496,11 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 		variable.setText(null);		
 		
 	}
+	
+	/**
+	 * Set the JtextField coordinated vertical coordinated (y) with equal space from each other
+	 * @param y variable to contain the initial JTextField y location
+	 */
 	
 	public void runSetJTextFieldValues(int y) {
 		
@@ -671,6 +536,16 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 		
 	}
 	
+	/**
+	 * Facilitation to the creation of buttons
+	 * @param button contains the JButton object
+	 * @param name set a String text to the button
+	 * @param x horizontal button position
+	 * @param y vertical button position
+	 * @param width button width
+	 * @param height button height
+	 */
+	
 	public void standardizeButtons(JButton button, String name, int x, int y, int width, int height) {
 		
 		button.setText(name);
@@ -680,6 +555,15 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 		button.addActionListener(this);
 		
 	}
+	
+	/**
+	 * Facilitate the creation of JTextFields
+	 * @param jTextField contains the JTextField variable
+	 * @param name set the text on the JTextField box
+	 * @param y vertical JTextField position
+	 * @param width JTextField width
+	 * @param height JTextField height
+	 */
 	
 	public void displayObjectJTextFieldInformation(JTextField jTextField, String name, int y, int width, int height) {
 		
@@ -691,6 +575,13 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 		
 	}
 	
+	/**
+	 * Standardize the minibuttons(return and menu) creation
+	 * @param name  contains the JButton object
+	 * @param icon contains the image that goes on the button
+	 * @param x contains the horizontal button location
+	 */
+	
 	public void setMiniButtons(JButton name, ImageIcon icon, int x) {
 		
 		name.setBounds(x, 0, 32, 32);
@@ -700,5 +591,206 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 		name.setIcon(icon);
 		
 	}
+	
+	/**
+	 * Get the NutritionalTable object (aliment) and add to the JTextField
+	 * Also setting JTextField bounds with the displayObjectJTextFieldInformation method
+	 * @param object contains the entered object NutritionalTable type
+	 */
+	
+	public void addTheFetchedInformationToTheJTextField(NutritionalTable object) {
+		
+		setVisibility(false, true, false);
+	  
+		int a = 1;		
+		displayObjectJTextFieldInformation(nameSubmit2, object.getName(),  83, 170, 20);
+		displayObjectJTextFieldInformation(calorieSubmit2, object.getCalorie(),  1 + 83 + 23*a, 170, 20); a++;
+	  	displayObjectJTextFieldInformation(proteinsSubmit2, object.getProtein(),  2 + 83 + 23*a, 170, 20); a++;
+		displayObjectJTextFieldInformation(carbohydrateSubmit2, object.getCarbohydrate(),  3 + 83 + 23*a, 170, 20); a++;
+		displayObjectJTextFieldInformation(lipidsSubmit2, object.getLipids(),  4 + 83 + 23*a, 170, 20); a++;
+		displayObjectJTextFieldInformation(calciumSubmit2, object.getCalcium(),  5 + 83 + 23*a, 170, 20); a++;
+		displayObjectJTextFieldInformation(ironSubmit2, object.getIron(),  5 + 83 + 23*a, 170, 20); a++;
+		displayObjectJTextFieldInformation(fiberSubmit2, object.getFiber(),  5 + 83 + 23*a, 170, 20); a++;
+	    displayObjectJTextFieldInformation(phosphorSubmit2, object.getPhosphor(),  6 + 83 + 23*a, 170, 20); a++;
+   		displayObjectJTextFieldInformation(iodineSubmit2, object.getIodine(),  8 + 83 + 23*a, 170, 20); a++;
+ 		displayObjectJTextFieldInformation(magnesiumSubmit2, object.getMagnesium(),  9 +  83 + 23*a, 170, 20); a++;
+		displayObjectJTextFieldInformation(potassiumSubmit2, object.getPotassium(),  12 +  83 + 23*a, 170, 20); a++;
+		displayObjectJTextFieldInformation(sodiumSubmit2, object.getSodium(),  13 + 83 + 23*a, 170, 20); a++;
+		displayObjectJTextFieldInformation(zincSubmit2, object.getZinc(),  13 + 83 + 23*a, 170, 20); a++;
+		displayObjectJTextFieldInformation(vitaminASubmit2, object.getVitaminA(),  13 + 83 + 23*a, 170, 20); a++;
+	    displayObjectJTextFieldInformation(vitaminB1Submit2, object.getVitaminB1(),  14 + 83 + 23*a, 170, 20); a++;
+	    displayObjectJTextFieldInformation(vitaminB2Submit2, object.getVitaminB2(),  16 + 83 + 23*a, 170, 20); a++;
+		displayObjectJTextFieldInformation(vitaminB3Submit2, object.getVitaminB3(),  16 + 83 + 23*a, 170, 20); a++;
+		displayObjectJTextFieldInformation(vitaminB5Submit2, object.getVitaminB5(),  17 + 83 + 23*a, 170, 20); a++;
+		displayObjectJTextFieldInformation(vitaminB6Submit2, object.getVitaminB6(),  19 + 83 + 23*a, 170, 20); a++;
+		displayObjectJTextFieldInformation(vitaminB9Submit2, object.getVitaminB9(),  20 + 83 + 23*a, 170, 20); a++;
+		displayObjectJTextFieldInformation(vitaminB12Submit2, object.getVitaminB12(),  20 + 83 + 23*a, 170, 20); a++;
+		displayObjectJTextFieldInformation(vitaminCSubmit2, object.getVitaminC(),  22 + 83 + 23*a, 170, 20); a++;
+		displayObjectJTextFieldInformation(vitaminDSubmit2, object.getVitaminD(),  23 + 83 + 23*a, 170, 20); a++;
+		displayObjectJTextFieldInformation(vitaminESubmit2, object.getVitaminE(),  23 + 83 + 23*a, 170, 20); a++;
+		displayObjectJTextFieldInformation(vitaminHSubmit2, object.getVitaminH(),  23 + 83 + 23*a, 170, 20); a++;
+		displayObjectJTextFieldInformation(vitaminKSubmit2, object.getVitaminK(),  25 + 83 + 23*a, 170, 20); a++;
+		
+	}
+	
+	/**
+	 * Setting visibility and calling the runSetJTextFieldValues to set the JTextFields
+	 */
+	public void addButtonSetInformations() {
+		
+		setVisibility(true, false, false);
+		runSetJTextFieldValues(93);
+		
+	}
+	
+	/**
+	 * Saving information to the created NutritionalTable object (aliment) and adding it to the list
+	 * JOptionPane to display a message to the user
+	 */
+	
+	public void saveButtonSetInformation() {
+		
+		setVisibility(false, false, true);
+		
+		NutritionalTable addButtonObject = new NutritionalTable();
+		
+		addButtonObject.setName(nameSubmit.getText());
+		addButtonObject.setCalorie(calorieSubmit.getText());
+		addButtonObject.setProtein(proteinsSubmit.getText());
+		addButtonObject.setCarbohydrate(carbohydrateSubmit.getText());
+		addButtonObject.setLipids(lipidsSubmit.getText());
+		addButtonObject.setCalcium(calciumSubmit.getText());
+		addButtonObject.setIron(ironSubmit.getText());
+		addButtonObject.setFiber(fiberSubmit.getText());
+		addButtonObject.setPhosphor(phosphorSubmit.getText());
+		addButtonObject.setIodine(iodineSubmit.getText());
+		addButtonObject.setMagnesium(magnesiumSubmit.getText());
+		addButtonObject.setPotassium(potassiumSubmit.getText());
+		addButtonObject.setSodium(sodiumSubmit.getText());
+		addButtonObject.setZinc(zincSubmit.getText());
+		addButtonObject.setVitaminA(vitaminASubmit.getText());
+		addButtonObject.setVitaminB1(vitaminB1Submit.getText());
+		addButtonObject.setVitaminB2(vitaminB2Submit.getText());
+		addButtonObject.setVitaminB3(vitaminB3Submit.getText());
+		addButtonObject.setVitaminB5(vitaminB5Submit.getText());
+		addButtonObject.setVitaminB6(vitaminB6Submit.getText());
+		addButtonObject.setVitaminB9(vitaminB9Submit.getText());
+		addButtonObject.setVitaminB12(vitaminB12Submit.getText());
+		addButtonObject.setVitaminC(vitaminCSubmit.getText());
+		addButtonObject.setVitaminD(vitaminDSubmit.getText());
+		addButtonObject.setVitaminE(vitaminESubmit.getText());
+		addButtonObject.setVitaminH(vitaminHSubmit.getText());
+		addButtonObject.setVitaminK(vitaminKSubmit.getText());
+		
+		model.addElement(addButtonObject);
+		JOptionPane.showMessageDialog(null, nameSubmit.getText()+ " adicionado!", null, JOptionPane.INFORMATION_MESSAGE);
+		
+	}
+	
+	/**
+	 * set Visibility informations and remove a element from the list
+	 */
+	
+	public void deleteButtonSetInformations() {
+		
+		setVisibility(false, false, true);
+		model.removeElement(alimentsJList.getSelectedValue());	
+		
+	}
+	
+	/**
+	 * Set the JTextfileds information editable
+	 */
+	
+	public void editButtonSetInformations() {
+		
+		setVisibility(false, true, false);
 
+		nameSubmit2.setEditable(false);
+		calorieSubmit2.setEditable(true);
+		proteinsSubmit2.setEditable(true);
+		carbohydrateSubmit2.setEditable(true);
+		lipidsSubmit2.setEditable(true);
+		calciumSubmit2.setEditable(true);
+		ironSubmit2.setEditable(true);
+		fiberSubmit2.setEditable(true);
+		phosphorSubmit2.setEditable(true);
+		iodineSubmit2.setEditable(true);
+		magnesiumSubmit2.setEditable(true);
+		potassiumSubmit2.setEditable(true);
+		sodiumSubmit2.setEditable(true);
+		zincSubmit2.setEditable(true);
+		vitaminASubmit2.setEditable(true);
+		vitaminB1Submit2.setEditable(true);
+		vitaminB2Submit2.setEditable(true);
+		vitaminB3Submit2.setEditable(true);
+		vitaminB5Submit2.setEditable(true);
+		vitaminB6Submit2.setEditable(true);
+		vitaminB9Submit2.setEditable(true);
+		vitaminB12Submit2.setEditable(true);
+		vitaminCSubmit2.setEditable(true);
+		vitaminDSubmit2.setEditable(true);
+		vitaminESubmit2.setEditable(true);
+		vitaminHSubmit2.setEditable(true);
+		vitaminKSubmit2.setEditable(true);
+		
+		
+	}
+	 
+	 /**
+	  * Saving information to the created NutritionalTable object (aliment) and adding it to the list
+	  * JOptionPane to display a message to the user
+	  */
+	 
+	public void save2ButtonSetInformation() {
+	
+	setVisibility(false, false, true);	
+	
+	NutritionalTable object = alimentsJList.getSelectedValue();	
+	
+	object.setCalorie(calorieSubmit2.getText());
+	object.setProtein(proteinsSubmit2.getText());
+	object.setCarbohydrate(carbohydrateSubmit2.getText());
+	object.setLipids(lipidsSubmit2.getText());
+	object.setCalcium(calciumSubmit2.getText());
+	object.setIron(ironSubmit2.getText());
+	object.setFiber(fiberSubmit2.getText());
+	object.setPhosphor(phosphorSubmit2.getText());
+	object.setIodine(iodineSubmit2.getText());
+	object.setMagnesium(magnesiumSubmit2.getText());
+	object.setPotassium(potassiumSubmit2.getText());
+	object.setSodium(sodiumSubmit2.getText());
+	object.setZinc(zincSubmit2.getText());
+	object.setVitaminA(vitaminASubmit2.getText());
+	object.setVitaminB1(vitaminB1Submit2.getText());
+	object.setVitaminB2(vitaminB2Submit2.getText());
+	object.setVitaminB3(vitaminB3Submit2.getText());
+	object.setVitaminB5(vitaminB5Submit2.getText());
+	object.setVitaminB6(vitaminB6Submit2.getText());
+	object.setVitaminB9(vitaminB9Submit2.getText());
+	object.setVitaminB12(vitaminB12Submit2.getText());
+	object.setVitaminC(vitaminCSubmit2.getText());
+	object.setVitaminD(vitaminDSubmit2.getText());
+	object.setVitaminE(vitaminESubmit2.getText());
+	object.setVitaminH(vitaminHSubmit2.getText());
+	object.setVitaminK(vitaminKSubmit2.getText());
+	
+	JOptionPane.showMessageDialog(null, "Suas informacoes foram salvas!", null, JOptionPane.INFORMATION_MESSAGE);
+		
+		
+	}
+	
+	/**
+	 * Facilitate the set of visibility
+	 * @param x variable to contain a boolean information	
+	 * @param y variable to contain a boolean information
+	 * @param z variable to contain a boolean information
+	 */
+	public void setVisibility(boolean x, boolean y, boolean z) {
+		
+		addPanel.setVisible(x);
+		informationViewPanel.setVisible(y);
+		listOfAlimentsPanel.setVisible(z);
+	}
+	
 }
