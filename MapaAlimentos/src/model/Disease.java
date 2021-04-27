@@ -4,7 +4,7 @@ package model;
  * This class was created as a model to instance disease objects, the objects will contain informations about a disease related
  * to aliments
  * @author Julio Cesar and Valderson
- *
+ * @version 3.0 (Apr 2021)
  */
 
 public class Disease {
