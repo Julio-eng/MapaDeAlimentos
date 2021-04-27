@@ -11,6 +11,12 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
+/**
+ * Display a frame with the Body Adiposity Index classification range
+ * @author Julio and Valderson
+ *
+ */
+
 public class BAITableView extends JFrame implements ActionListener {
 	
 	
@@ -19,7 +25,11 @@ public class BAITableView extends JFrame implements ActionListener {
 	private ImageIcon regressIcon = new ImageIcon("regress.png");
 	private JButton regress = new JButton();
 	
-	
+	/**
+	 * Class constructor
+	 * Frame with textArea, label, imageIcon, button
+	 * Setting characteristics and gadgets to a frame
+	 */
 	public BAITableView() {
 		
 		this.setVisible(true);

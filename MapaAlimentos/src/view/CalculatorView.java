@@ -16,6 +16,12 @@ import javax.swing.JTextField;
 
 import model.*;
 
+/**
+ * Display of the graphic interface to the Body Mass Index and Body Adiposity Index calculation
+ * @author Julio and Valderson
+ *
+ */
+
 public class CalculatorView implements ActionListener {
 	
 	
@@ -43,9 +49,12 @@ public class CalculatorView implements ActionListener {
 	private BMI objectBMI = new BMI();
 	private JTextArea displayInformations = new JTextArea();
 	private JTextArea displayInformations2 = new JTextArea();
-
 	
-	CalculatorView(){
+	/**
+	 * Constructor to set information to the frame, panels, buttons and other frame gadgets
+	 */
+	
+	public CalculatorView(){
 		
 		//FRAME---------------------------------------------------------------------------------------------------------------------------------
 		calculatorFrame.setVisible(true);
@@ -127,45 +136,14 @@ public class CalculatorView implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		
 		if(e.getSource() == calculate) {
-				
-				//JOptionPane.showMessageDialog(null, "Por", null, JOptionPane.INFORMATION_MESSAGE);
-
-				
-				if(heightJTxt.getText().isEmpty()) {
-					
-					JOptionPane.showMessageDialog(null, "A altura e um campo obrigatorio!", null, JOptionPane.INFORMATION_MESSAGE);
-					
-				}
-				else if(bodyMassJTxt.getText().isEmpty() && waistCircunferenceJTxt.getText().isEmpty()) {
-					
-					JOptionPane.showMessageDialog(null, "A Massa Coporal e a Circunferencia da cintura nao podem estar ambos vazios!", null, JOptionPane.INFORMATION_MESSAGE);
-					
-				}
-				else if(!heightJTxt.getText().isEmpty() && !bodyMassJTxt.getText().isEmpty()) {
-					
-					objectBMI.setHeight(Double.parseDouble(heightJTxt.getText()));
-					objectBMI.setBoddyMass(Double.parseDouble(bodyMassJTxt.getText()));		
-					displayBMICalculation.setText(objectBMI.bmiCalculation() + " Kg/m²");
-					
-				} 
-				else if(!heightJTxt.getText().isEmpty() && !waistCircunferenceJTxt.getText().isEmpty()) {
-					
-					objectBAI.setHeight(Double.parseDouble(heightJTxt.getText()));
-					objectBAI.setHip(Double.parseDouble(waistCircunferenceJTxt.getText()));
-					displayBAICalculation.setText(objectBAI.baiCalculation() + "%");
-					
-				}	
-			
+						
+			calculationBMIBMA();			
 			
 		}
 		
 		if(e.getSource() == cleanJTxtFields) {
 
-			heightJTxt.setText("");
-			bodyMassJTxt.setText("");
-			waistCircunferenceJTxt.setText("");
-			displayBMICalculation.setText("");
-			displayBAICalculation.setText("");
+			cleanJTextFields();
 						
 		}
 		
@@ -185,22 +163,26 @@ public class CalculatorView implements ActionListener {
 		if(e.getSource() == menu) {
 			
 			calculatorFrame.dispose();
-			mainPanel.setVisible(false);
+			mainPanel.setVisible(false); //setting visibility
 			new MainView();
 			
 		}
 		
 		if(e.getSource() == regress) {
 			
-			calculatorFrame.dispose();
-			mainPanel.setVisible(false);
+			calculatorFrame.dispose(); 
+			mainPanel.setVisible(false); //setting visibility
 			new MainView();			
 			
 		}
 		
 	}
 
-	
+	/**
+	 * Standardize the labels of the class
+	 * @param label variable that contains the JLabel
+	 * @param y variable that contains the label vertical location
+	 */
 	public void setLabels(JLabel label, int y) {
 		
 		label.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -211,6 +193,12 @@ public class CalculatorView implements ActionListener {
 		
 	}
 	
+	/**
+	 * Standardize the JTextFields characteristics
+	 * @param variable contains the JTextField
+	 * @param y variable that contains the textField vertical location
+	 */
+	
 	public void setJTextFields(JTextField variable, int y) {
 		
 		variable.setVisible(true);
@@ -218,6 +206,14 @@ public class CalculatorView implements ActionListener {
 		variable.setBounds(325, y, 100 , 20);
 		
 	}
+	
+	/**
+	 * Standardize the Label characteristics
+	 * @param label contains the JLabel
+	 * @param x variable that contains the textField horizontal location
+	 * @param y variable that contains the textField vertical location
+	 * @param tamanhoFonte variable that contatins the size of the font
+	 */
 	
 	public void titleLabels(JLabel label, int x, int y, int tamanhoFonte) {
 		
@@ -227,6 +223,15 @@ public class CalculatorView implements ActionListener {
 		label.setLayout(null);
 		
 	}
+	
+	/**
+	 * Standardize the buttons
+	 * @param button variable that contains the JButton
+	 * @param x variable that contains the button horizontal location
+	 * @param y variable that contains the button horizontal location
+	 * @param width button width
+	 * @param height button height
+	 */
 	
 	public void setButtons(JButton button, int x, int y, int width, int height) {
 		
@@ -238,6 +243,15 @@ public class CalculatorView implements ActionListener {
 		
 	}
 	
+	/**
+	 * Standardize the smaller buttons (button of regress or go back to a new MainFrame())
+	 * @param button variable that contains the JButton
+	 * @param x variable that contains the button horizontal location
+	 * @param y variable that contains the button horizontal location
+	 * @param width button width
+	 * @param height button height
+	 */
+	
 	public void setMiniButtons(JButton name, ImageIcon icon, int x) {
 		name.setBounds(x, 0, 32, 32);
 		name.setVisible(true);
@@ -246,6 +260,104 @@ public class CalculatorView implements ActionListener {
 		name.setIcon(icon);
 		
 	}
+	
+	/**
+	 * Check if the information entered in the JTextField is a number
+	 * @param text variable that contatins the entered number on String format
+	 * @return true or false return (if is possible to convert = true // in case not == false)
+	 */
+	
+	public boolean testJTextFieldReturn(String text) {
+		      try {
+		         Double.parseDouble(text);
+		         return true;
+		         
+		      } catch (NumberFormatException e) {
+		         return false;
+		         
+		      }
+		   }
+	
+	/**
+	 * The user must enter the required height
+	 * The user must also enter boddy mass OR waist circunference
+	 * BAI requires: height and waist circunference
+	 * BMI requires: height and body mass
+	 */
+	
+	public void calculationBMIBMA() {
+		
+		
+		if(heightJTxt.getText().isEmpty()) {
+			
+			JOptionPane.showMessageDialog(null, "Altura e um campo obrigatorio!", null, JOptionPane.INFORMATION_MESSAGE);
+			
+			
+		}
+		
+		else if(!heightJTxt.getText().isEmpty() && !bodyMassJTxt.getText().isEmpty() && !waistCircunferenceJTxt.getText().isEmpty()) {
+			
+			if(testJTextFieldReturn(heightJTxt.getText()) == false || testJTextFieldReturn(waistCircunferenceJTxt.getText()) == false || testJTextFieldReturn(bodyMassJTxt.getText()) == false) {
+				
+				JOptionPane.showMessageDialog(null, "Entre com apenas numeros!", null, JOptionPane.INFORMATION_MESSAGE);
+				
+			}
+			
+			objectBAI.setHeight(Double.parseDouble(heightJTxt.getText()));
+			objectBAI.setHip(Double.parseDouble(waistCircunferenceJTxt.getText()));
+			objectBMI.setBoddyMass(Double.parseDouble(bodyMassJTxt.getText()));	
+			displayBMICalculation.setText(objectBMI.bmiCalculation() + " Kg/m²");
+			displayBAICalculation.setText(objectBAI.baiCalculation() + "%");
+			
+		}
+		else if(bodyMassJTxt.getText().isEmpty() && waistCircunferenceJTxt.getText().isEmpty()) {
+			
+			JOptionPane.showMessageDialog(null, "Massa Coporal e 	Circunferencia da cintura nao podem estar ambos vazios!", null, JOptionPane.INFORMATION_MESSAGE);
+			
+		}
+		else if(!heightJTxt.getText().isEmpty() && !bodyMassJTxt.getText().isEmpty()) {
+			
+			
+			if(testJTextFieldReturn(heightJTxt.getText()) == false || testJTextFieldReturn(bodyMassJTxt.getText()) == false) {
+				
+				JOptionPane.showMessageDialog(null, "Entre com apenas numeros!", null, JOptionPane.INFORMATION_MESSAGE);
+				
+			}
+			
+			
+			objectBMI.setHeight(Double.parseDouble(heightJTxt.getText()));
+			objectBMI.setBoddyMass(Double.parseDouble(bodyMassJTxt.getText()));		
+			displayBMICalculation.setText(objectBMI.bmiCalculation() + " Kg/m²");
+			
 
+		} 
+		else if(!heightJTxt.getText().isEmpty() && !waistCircunferenceJTxt.getText().isEmpty()) {
+			
+			if(testJTextFieldReturn(heightJTxt.getText()) == false || testJTextFieldReturn(waistCircunferenceJTxt.getText()) == false) {
+				
+				JOptionPane.showMessageDialog(null, "Entre com apenas numeros!", null, JOptionPane.INFORMATION_MESSAGE);
+				
+			}
+			
+			objectBAI.setHeight(Double.parseDouble(heightJTxt.getText()));
+			objectBAI.setHip(Double.parseDouble(waistCircunferenceJTxt.getText()));
+			displayBAICalculation.setText(objectBAI.baiCalculation() + "%");
+			
+		}
+		
+	}
+	
+	/**
+	 * Clean the JTextFields setText
+	 */
+	   
+	public void cleanJTextFields() {
+		
+		heightJTxt.setText("");
+		bodyMassJTxt.setText("");
+		waistCircunferenceJTxt.setText("");
+		displayBMICalculation.setText("");
+		displayBAICalculation.setText("");
+	}
 
 }
