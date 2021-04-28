@@ -18,8 +18,8 @@ import model.*;
 
 /**
  * Display of the graphic interface to the Body Mass Index and Body Adiposity Index calculation
- * @author Julio and Valderson
- * @version 3.0 (Apr 2021)
+ * @author Julio Cesar and Valderson
+ * 
  */
 
 public class CalculatorView implements ActionListener {
