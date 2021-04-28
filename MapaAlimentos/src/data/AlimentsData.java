@@ -5,7 +5,7 @@ import model.NutritionalTable;
 /**
  * Association to NutritionalTable to declare objects
  * @author Julio Cesar and Valderson
- * 
+ * @version 3.0 (apr 2021)
  */
 
 public class AlimentsData {
