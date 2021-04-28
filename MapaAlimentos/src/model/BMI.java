@@ -3,8 +3,8 @@ package model;
 /**
  * Extended from BodyIndexCalculator class
  * Related to Body Mass Index (BMI)
- * @author Julio and Valderson
- * @version 3.0 (Apr 2021)
+ * @author Julio Cesar and Valderson
+ *
  */
 
 public final class BMI extends BodyIndexCalculator {
