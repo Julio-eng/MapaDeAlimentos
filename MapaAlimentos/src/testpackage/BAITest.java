@@ -13,7 +13,8 @@ class BAITest {
 	@Test
 	void testBaiCalculation() {
 		
-		assertEquals(35.16, Double.parseDouble(objectBAI.baiCalculation()));		
+		assertEquals(35.16, Double.parseDouble(objectBAI.baiCalculation()));
+		assertNotEquals(35.2, Double.parseDouble(objectBAI.baiCalculation()));
 
 	}
 
