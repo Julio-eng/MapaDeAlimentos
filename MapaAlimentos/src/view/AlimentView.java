@@ -349,6 +349,10 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 		standardizeButtons(save, "Salvar", 370, 670, 100, 50);
 		standardizeButtons(delete, "Deletar", 370, 670, 100, 50);
 		standardizeButtons(save2, "Salvar", 370, 530, 100, 50);
+		save.setVisible(false);
+		edit.setVisible(false);
+		save2.setVisible(false);
+		delete.setVisible(false);
 		setMiniButtons(regress, regressIcon, 0);
 		setMiniButtons(menu, menuIcon2, 32);
 		setMiniButtons(regress2, regressIcon, 0);
@@ -390,6 +394,9 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 			if(e.getValueIsAdjusting() && e.getSource() == alimentsJList ) {
 		
 				addTheFetchedInformationToTheJTextField(object);
+				edit.setVisible(true);
+				save2.setVisible(true);
+				delete.setVisible(true);
 				
 		}
 		
@@ -402,6 +409,7 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 		if(e.getSource() == add ) {
 			
 			addButtonSetInformations();
+			
 
 		}
 		
@@ -550,7 +558,6 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 		
 		button.setText(name);
 		button.setBounds(x, y, width, height);
-		button.setVisible(true);
 		button.setFocusable(false);
 		button.addActionListener(this);
 		
@@ -639,6 +646,7 @@ public class AlimentView implements ListSelectionListener, ActionListener {
 	public void addButtonSetInformations() {
 		
 		setVisibility(true, false, false);
+		save.setVisible(true);
 		runSetJTextFieldValues(93);
 		
 	}
