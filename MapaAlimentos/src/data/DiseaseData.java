@@ -5,7 +5,7 @@ import model.Disease;
 /**
  * Class created to instance Disease objects used to fill the diseases list 
  * @author Julio Cesar and Valderson
- * @version 3.0 (Apr 2021)
+ *
  */
 
 public class DiseaseData {
