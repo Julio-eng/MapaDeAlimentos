@@ -15,7 +15,7 @@ import model.Disease;
  * Used to set the Diseases frame and all the other panels used to switch between the other frame's 
  * functionalities
  * @author Julio Cesar and Valderson 
- * 
+ * @version 3.0 (apr 2021)
  */
 
 public class DiseasesView implements ListSelectionListener, ActionListener{
