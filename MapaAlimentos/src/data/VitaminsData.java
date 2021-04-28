@@ -5,7 +5,7 @@ import model.VitaminsAndMinerals;
 /**
  * Class created to instance VitaminsAndMinerals objects used to fill the vitamins list 
  * @author Julio Cesar and Valderson
- * @version 3.0 (Apr 2021)
+ * 
  */
 
 public class VitaminsData {
