@@ -13,8 +13,8 @@ import javax.swing.JTextArea;
 
 /**
  * Display a frame with the Body Mass Index classification range
- * @author Julio and Valderson
- *
+ * @author Julio Cesar and Valderson
+ * @version 3.0 (apr 2021)
  */
 
 public class BMITableView extends JFrame implements ActionListener{

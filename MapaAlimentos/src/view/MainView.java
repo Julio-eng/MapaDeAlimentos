@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 /**
  * Used to set the menu frame with the options(buttons) for what functionality do you want to use
  * @author Julio Cesar and Valderson 
- *
+ * @version 3.0 (apr 2021)
  */
 
 public class MainView extends JFrame implements ActionListener {

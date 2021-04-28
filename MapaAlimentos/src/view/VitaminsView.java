@@ -15,7 +15,7 @@ import model.VitaminsAndMinerals;
  * Used to set the minerals frame and all the other panels used to switch between the other frame's 
  * functionalities
  * @author Julio Cesar and Valderson 
- *
+ * @version 3.0 (apr 2021)
  */
 
 public class VitaminsView implements ListSelectionListener, ActionListener{

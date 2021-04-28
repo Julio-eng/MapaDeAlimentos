@@ -27,8 +27,8 @@ import model.NutritionalTable;
  * CRUD of the NutritionalTable type aliments
  * Display of the graphic interface related to the list of aliments
  * Frame, panels, labels, imageIcons, buttons, textArea, textField
- * @author Julio and Valderson
- *
+ * @author Julio Cesar and Valderson
+ * @version 3.0 (apr 2021)
  */
 
 public class AlimentView implements ListSelectionListener, ActionListener {

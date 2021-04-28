@@ -3,8 +3,8 @@ package model;
 /**
  * Creating an object to save informations of the aliment characteristics
  * Name, Energy, Macronutrients, Minerals and Vitamins;
- * @author Julio and Valderson
- *
+ * @author Julio Cesar and Valderson
+ * @version 3.0 (apr 2021)
  */
 
 public class NutritionalTable {
