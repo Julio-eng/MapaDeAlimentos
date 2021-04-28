@@ -3,7 +3,7 @@ package view;
 /**
  * Contains the main method
  * @author Julio Cesar and Valderson
- *
+ * @version 3.0 (apr 2021)
  */
 public class Main {
 
